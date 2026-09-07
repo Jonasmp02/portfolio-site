@@ -58,27 +58,27 @@ const Navbar = () => {
         : 'bg-white/10 backdrop-blur-sm'
     }`} style={{ margin: 0, padding: 0 }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection('hero')}
-              className={`text-xl font-bold cursor-pointer whitespace-nowrap transition-colors duration-300 ${
+              className={`text-2xl font-bold cursor-pointer whitespace-nowrap transition-colors duration-300 ${
                 isScrolled 
                   ? 'gradient-text' 
                   : 'text-white'
               }`}
             >
-              Code 9 · UiA
+              Jonas Moen Pettersen | Portefølje
             </button>
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
+            <div className="ml-10 flex items-center space-x-9">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer whitespace-nowrap ${
+                  className={`px-3 py-2 rounded-md text-base font-semibold transition-colors cursor-pointer whitespace-nowrap ${
                     isScrolled 
                       ? 'text-gray-700 hover:text-blue-600' 
                       : 'text-white hover:text-blue-200'
@@ -95,8 +95,8 @@ const Navbar = () => {
                     : 'border-white/30 text-white hover:text-blue-200'
                 }`}
               >
-                <div className="text-sm font-medium">Bachelorprosjekt</div>
-                <div className="text-xs opacity-75">(Knowit)</div>
+                <div className="text-base font-semibold">Bachelorprosjekt</div>
+                <div className="text-sm opacity-75">(Knowit)</div>
               </button>
             </div>
           </div>

@@ -25,7 +25,7 @@ const AboutSection = () => {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Om <span className="gradient-text">Code 9</span>
+              Bachelor og <span className="gradient-text">studieprosjekter</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           </div>
@@ -33,13 +33,14 @@ const AboutSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Vi er fire dedikerte IT-studenter ved Universitetet i Agder som brenner for å skape innovative teknologiske løsninger.
-                Vår gruppe kombinerer kreativitet med teknisk ekspertise for å levere prosjekter som gjør en reell forskjell.
+                Denne siden samler bachelorprosjektet, utvalgte studieprosjekter og teamarbeidet bak løsningene.
+                Prosjektene viser hvordan jeg har jobbet med frontend, UX, sikkerhet, kart, data og AI i praktiske leveranser.
               </p>
 
               <p className="text-lg text-gray-700 leading-relaxed">
-                Med bakgrunn innen frontend-utvikling, backend-arkitektur, fullstack-utvikling og testing, dekker vi hele spekteret
-                av moderne programvareutvikling. Vi fokuserer på brukeropplevelse, skalerbarhet og kvalitet i alt vi gjør.
+                Bachelorprosjektet ble gjennomført i gruppe ved Universitetet i Agder, mens resten av siden gir kontekst
+                rundt prosess, teknologi og bidrag. Målet er å vise både hva som ble bygget, hvordan vi jobbet, og hvilken
+                rolle jeg hadde i arbeidet.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mt-8">
@@ -47,32 +48,32 @@ const AboutSection = () => {
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="ri-code-s-slash-line text-2xl text-blue-600"></i>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Moderne Teknologi</h3>
-                  <p className="text-sm text-gray-600">React, TypeScript, Node.js og mer</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Teknologi</h3>
+                  <p className="text-sm text-gray-600">React, TypeScript, Node.js og AI</p>
                 </div>
 
                 <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="ri-team-line text-2xl text-purple-600"></i>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Teamarbeid</h3>
-                  <p className="text-sm text-gray-600">Agile metodikk og samarbeid</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Bachelorteam</h3>
+                  <p className="text-sm text-gray-600">Samarbeid, planlegging og leveranser</p>
                 </div>
 
                 <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="ri-lightbulb-line text-2xl text-green-600"></i>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Innovasjon</h3>
-                  <p className="text-sm text-gray-600">Kreative løsninger på komplekse problemer</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Prosjekter</h3>
+                  <p className="text-sm text-gray-600">Bachelor, UX, kart og webutvikling</p>
                 </div>
 
                 <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i className="ri-award-line text-2xl text-orange-600"></i>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Kvalitet</h3>
-                  <p className="text-sm text-gray-600">Høye standarder og beste praksis</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">Min rolle</h3>
+                  <p className="text-sm text-gray-600">Design, kode, struktur og forbedringer</p>
                 </div>
               </div>
             </div>
@@ -81,19 +82,17 @@ const AboutSection = () => {
               <div className="relative z-10">
                 <img
                   src={withBase('images/Guttasmiler.jpg')}
-                  alt="Gruppe 9 Team"
+                  alt="Bachelorgruppen samlet rundt arbeidsbordet"
                   className="rounded-2xl shadow-2xl object-cover w-full h-96"
-                  style={{ objectPosition: '30% 60%' }} // shift image right -> focus more on left, slightly lower
+                  style={{ objectPosition: '30% 60%' }}
                 />
               </div>
 
-              {/* Decorative elements */}
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-200 rounded-full opacity-50 animate-float"></div>
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-200 rounded-full opacity-50 animate-float-delayed"></div>
             </div>
           </div>
 
-          {/* Stats section */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">4</div>

@@ -5,7 +5,7 @@ type Props = {
 };
 
 const ContactSection = ({
-  githubUrl = 'https://github.com/KristianMB13/gruppe9site',
+  githubUrl = 'https://github.com/Jonasmp02/portfolio-site',
 }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
 
