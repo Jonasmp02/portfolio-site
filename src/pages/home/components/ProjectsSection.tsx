@@ -79,7 +79,8 @@ const ProjectsSection = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mt-6"></div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="flex flex-col">
+            <div className="order-2 grid lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
@@ -140,7 +141,7 @@ const ProjectsSection = () => {
           </div>
 
           <div
-            className="mt-10 bg-gradient-to-r from-slate-900 via-blue-900 to-violet-900 rounded-2xl p-8 shadow-xl border border-blue-200/20 cursor-pointer group"
+            className="order-1 mb-12 bg-gradient-to-r from-slate-900 via-blue-900 to-violet-900 rounded-2xl p-8 shadow-xl border border-blue-200/20 cursor-pointer group"
             onClick={navigateToBachelor}
             onKeyDown={(event) => {
               if (event.key === 'Enter' || event.key === ' ') {
@@ -182,6 +183,7 @@ const ProjectsSection = () => {
                 Se bachelorprosjektet
                 <i className="ri-arrow-right-line ml-2"></i>
               </button>
+            </div>
             </div>
           </div>
         </div>

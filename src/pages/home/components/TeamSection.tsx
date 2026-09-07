@@ -58,10 +58,10 @@ const TeamSection = () => {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Møt <span className="gradient-text">Teamet</span>
+              Prosjektteam og <span className="gradient-text">roller</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Medlemmer fra Gruppe 9 ved IT og informasjonssystemer
+              Medlemmer og roller fra tidligere studie- og bachelorprosjekter
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mt-6"></div>
           </div>
