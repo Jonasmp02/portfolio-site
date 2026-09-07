@@ -99,7 +99,7 @@ const AboutSection = () => {
               <div className="text-gray-600">Teammedlemmer</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">3</div>
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">4</div>
               <div className="text-gray-600">Store prosjekter</div>
             </div>
             <div className="text-center">

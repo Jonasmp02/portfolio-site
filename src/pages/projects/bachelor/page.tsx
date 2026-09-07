@@ -116,6 +116,41 @@ const BachelorPage = () => {
         </div>
       </section>
 
+      <section className="pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-xl border border-violet-100 overflow-hidden">
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="bg-gradient-to-br from-violet-600 to-blue-700 p-8 md:p-10 text-white">
+                <p className="text-violet-200 font-semibold mb-3">Min rolle</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-5">Prosjektleder og bindeledd mot stakeholders</h2>
+                <p className="text-violet-100 leading-relaxed">
+                  I bachelorprosjektet hadde jeg ansvar for å holde oversikt over fremdrift, koordinere arbeid i gruppen
+                  og sørge for tydelig kommunikasjon med eksterne parter gjennom prosjektperioden.
+                </p>
+              </div>
+
+              <div className="p-8 md:p-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-5">Hva jeg lærte</h3>
+                <div className="space-y-4 text-gray-600 leading-relaxed">
+                  <p>
+                    Rollen som prosjektleder ga meg erfaring med å gjøre uklare behov om til konkrete oppgaver, prioritere
+                    arbeid og holde teamet samlet rundt felles mål.
+                  </p>
+                  <p>
+                    Kontakten med stakeholders lærte meg hvor viktig det er å stille gode spørsmål, avklare forventninger
+                    tidlig og oversette tekniske valg til forklaringer som gir mening for både fagpersoner og samarbeidspartnere.
+                  </p>
+                  <p>
+                    Jeg fikk også bedre forståelse for hvordan teknisk utvikling, dokumentasjon, møtestruktur og relasjonsbygging
+                    henger sammen når et prosjekt skal levere noe som faktisk kan vurderes og brukes videre.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">

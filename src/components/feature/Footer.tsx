@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold gradient-text mb-4">Code 9 · UiA</h3>
+            <h3 className="text-xl font-bold gradient-text mb-4">Jonas Moen Pettersen | Portefølje</h3>
             <p className="text-gray-400 mb-4">
-              Student- og porteføljeside for Gruppe 9 ved Universitetet i Agder, med utvalgte prosjekter fra IT og informasjonssystemer.
+              Porteføljeside med bachelorprosjekt, studieprosjekter og erfaringer innen frontend, UX, data og kunstig intelligens.
             </p>
           </div>
 
@@ -52,8 +52,26 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center">
+                <i className="ri-mail-line text-red-400 mr-3"></i>
+                <a
+                  href="mailto:jonasmp@stud.ntnu.no"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  jonasmp@stud.ntnu.no
+                </a>
+              </div>
+              <div className="flex items-center">
+                <i className="ri-phone-line text-red-400 mr-3"></i>
+                <a
+                  href="tel:+4795306110"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  953 06 110
+                </a>
+              </div>
+              <div className="flex items-center">
                 <i className="ri-map-pin-line text-red-400 mr-3"></i>
-                <span className="text-gray-400">Universitetet i Agder, Kristiansand</span>
+                <span className="text-gray-400">NTNU, Trondheim · fra Ski</span>
               </div>
             </div>
           </div>
@@ -61,7 +79,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2025-2026 Code 9 · Universitetet i Agder.
+            © 2025-2026 Jonas Moen Pettersen.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
           </div>
