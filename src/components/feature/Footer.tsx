@@ -43,14 +43,12 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
             <div className="space-y-3">
               <div className="flex items-center">
-                <i className="ri-github-fill text-red-400 mr-3"></i>
+                <i className="ri-mail-line text-red-400 mr-3"></i>
                 <a
-                  href="https://github.com/KristianMB13/gruppe9site"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:jonazmp@gmail.com"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  KristianMB13/gruppe9site
+                  jonazmp@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
