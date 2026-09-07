@@ -80,7 +80,9 @@ const JonasPage = () => {
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                   Jonas Moen <span className="gradient-text">Pettersen</span>
                 </h1>
-                <p className="text-xl text-gray-600 mb-6">23 år gammel • Ski • IT og informasjonssystemer</p>
+                <p className="text-xl text-gray-600 mb-6">
+                  24 år gammel • Ski/Trondheim • Bachelor i IT og informasjonssystemer • Master i informatikk ved NTNU
+                </p>
 
                 {/* Social Links */}
                 <div className="flex space-x-4">
@@ -106,8 +108,9 @@ const JonasPage = () => {
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Kort om meg</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Student med variert kompetanse og kreativitet som styrke. Interessert i design, programmering og kunstig
-                  intelligens. Trives med å finne løsninger som kombinerer praktiske behov og nye ideer.
+                  Student med bachelor i IT og informasjonssystemer, og går nå master i informatikk ved NTNU.
+                  Jeg trives med design, programmering og kunstig intelligens, og liker å finne løsninger som kombinerer
+                  praktiske behov med nye ideer.
                 </p>
               </div>
             </div>
@@ -130,9 +133,11 @@ const JonasPage = () => {
 
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
                 <p>
-                  Jeg heter Jonas, er 23 år gammel og kommer fra Ski. Tidligere arbeidserfaringer har bidratt til å gi meg
-                  gode samarbeidsevner, struktur i arbeidsprosesser og viktige sosiale ferdigheter. I tillegg har jeg bygget
-                  min egen PC, noe som har gitt meg innsikt i både maskinvare og systemforståelse.
+                  Jeg heter Jonas, er 24 år gammel og kommer fra Ski, men bor også i Trondheim i forbindelse med studier.
+                  Jeg har en bachelor i IT og informasjonssystemer, og går nå master i informatikk ved NTNU.
+                  Tidligere arbeidserfaringer har bidratt til å gi meg gode samarbeidsevner, struktur i arbeidsprosesser
+                  og viktige sosiale ferdigheter. I tillegg har jeg bygget min egen PC, noe som har gitt meg innsikt i
+                  både maskinvare og systemforståelse.
                 </p>
 
                 <p>
