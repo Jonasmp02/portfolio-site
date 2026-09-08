@@ -21,6 +21,15 @@ const HeroSection = () => {
     }
   };
 
+  const navigateToJonas = () => {
+    if ((window as any).REACT_APP_NAVIGATE) {
+      (window as any).REACT_APP_NAVIGATE('/team/jonas');
+      return;
+    }
+
+    window.location.href = `${import.meta.env.BASE_URL}team/jonas`;
+  };
+
   return (
     <section
       id="hero"
@@ -89,13 +98,39 @@ const HeroSection = () => {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <div className="relative max-w-md mx-auto lg:ml-auto">
-              <div className="aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl border border-white/20 bg-white/10 backdrop-blur-sm">
+            <div
+              className="group relative max-w-md mx-auto lg:ml-auto cursor-pointer transform transition-all duration-300 hover:scale-105"
+              onClick={navigateToJonas}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  navigateToJonas();
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label="Mer om Jonas Moen Pettersen"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl border border-white/20 bg-white/10 backdrop-blur-sm transition-shadow duration-300 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.45)]">
                 <img
                   src={`${import.meta.env.BASE_URL}images/jonas.jpg`}
                   alt="Jonas Moen Pettersen"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                 />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-7 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-2xl font-bold mb-2">Jonas M. Pettersen</h3>
+                  <div className="flex items-center text-blue-100">
+                    <span className="text-sm font-medium">Mer om meg</span>
+                    <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                  </div>
+                </div>
+
+                <div className="absolute top-4 right-4 w-11 h-11 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <i className="ri-external-link-line text-white text-lg"></i>
+                </div>
               </div>
 
               <div className="absolute bottom-4 right-4 flex gap-3">
@@ -104,6 +139,7 @@ const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
+                  onClick={(event) => event.stopPropagation()}
                   className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white shadow-lg transition-transform hover:scale-105"
                 >
                   <i className="ri-github-fill text-xl"></i>
@@ -113,6 +149,7 @@ const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
+                  onClick={(event) => event.stopPropagation()}
                   className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-transform hover:scale-105"
                 >
                   <i className="ri-linkedin-fill text-xl"></i>
