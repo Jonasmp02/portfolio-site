@@ -71,10 +71,10 @@ const ProjectsSection = () => {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Våre <span className="gradient-text">Prosjekter</span>
+              Tidligere <span className="gradient-text">Prosjekter</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Utforsk våre innovative løsninger som kombinerer teknisk ekspertise med kreativ problemløsning
+              Et utvalg tidligere prosjekter fra bachelor, studiearbeid og praktisk utvikling.
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mt-6"></div>
           </div>
