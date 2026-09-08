@@ -1,16 +1,19 @@
-# Code 9 / Gruppe 9
+# Jonas Moen Pettersen | Portefolje
 
-Nettside laget av fire IT-studenter ved Universitetet i Agder for å presentere gruppen og utvalgte studieprosjekter.
+Personlig porteføljeside for Jonas Moen Pettersen, bygget med React, TypeScript, Vite og Tailwind CSS. Siden presenterer tidligere studieprosjekter, bachelorprosjektet med Knowit og Telenor Maritime, erfaring, kompetanse og kontaktinformasjon.
 
 ## Live Demo
 
-https://kristianmb13.github.io/gruppe9site/
+https://jonasmp02.github.io/portfolio-site/
 
-## Om Prosjektet
+## Innhold
 
-Siden viser Code 9 / Gruppe 9, teammedlemmer og prosjekter fra studiet, blant annet arbeid med frontend, UX, kart, sikker innlogging og universell utforming.
-
-Prosjektet ble opprinnelig laget som en studentnettside og er senere ryddet opp teknisk slik at det er enklere å kjøre, bygge og vise frem.
+- Forside med kort introduksjon og profilbilde
+- Oversikt over tidligere prosjekter
+- Fremhevet bachelorprosjekt om agentbasert beslutningsstøtte for maritim drift
+- Prosjektsider for IK Start, Kartverket, FINN.no og bachelorprosjektet
+- Personlig profilside med kompetanse, interesser og erfaring
+- Prosjektstatus-side med prosess, kvalitet og ressursbruk fra bachelorprosjektet
 
 ## Tech Stack
 
@@ -24,11 +27,22 @@ Prosjektet ble opprinnelig laget som en studentnettside og er senere ryddet opp 
 
 ## Kjøre Lokalt
 
+Installer avhengigheter:
+
 ```bash
-git clone https://github.com/KristianMB13/gruppe9site.git
-cd gruppe9site
 npm install
+```
+
+Start utviklingsserver:
+
+```bash
 npm run dev
+```
+
+Vite viser lokal adresse i terminalen, vanligvis:
+
+```text
+http://localhost:3000/
 ```
 
 Produksjonsbuild:
@@ -37,6 +51,22 @@ Produksjonsbuild:
 npm run build
 ```
 
+For å forhåndsvise produksjonsbuild lokalt:
+
+```bash
+npm run preview
+```
+
+## Deploy
+
+Siden deployes til GitHub Pages via GitHub Actions fra `main`-branchen. Workflowen ligger i `.github/workflows/deploy.yml` og bygger prosjektet med:
+
+```bash
+npm run build
+```
+
+Build-output legges i `out/` og publiseres til GitHub Pages.
+
 ## AI-Assistert Utvikling
 
-AI-verktøy har vært brukt som støtte i deler av utviklingsprosessen, blant annet til kodegjennomgang, debugging, dokumentasjon og opprydding. Endringer er vurdert og testet før de er integrert i prosjektet.
+AI-verktøy har blitt brukt som støtte i deler av utviklingsarbeidet, blant annet til kodegjennomgang, debugging, tekstforbedringer, dokumentasjon og strukturering av endringer. Endringer er vurdert og testet før de er tatt inn i prosjektet.
