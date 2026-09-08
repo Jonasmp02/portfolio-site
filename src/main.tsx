@@ -13,7 +13,7 @@ import App from './App.tsx'
   try {
     const hash = window.location.hash;
     if (hash && hash.length > 1) {
-      // hash contains the original absolute path (e.g. "#/gruppe9site/prosjektstatus")
+      // hash contains the original absolute path (e.g. "#/portfolio-site/prosjektstatus")
       const original = hash.slice(1); // remove '#'
       if (original.startsWith('/')) {
         // replace the browser URL without reloading

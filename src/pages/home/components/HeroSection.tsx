@@ -22,6 +22,7 @@ const HeroSection = () => {
   };
 
   const navigateToJonas = () => {
+    // The hero image behaves like the team cards and links to the personal profile page.
     if ((window as any).REACT_APP_NAVIGATE) {
       (window as any).REACT_APP_NAVIGATE('/team/jonas');
       return;
@@ -139,6 +140,7 @@ const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
+                  // Keep social links from also triggering the profile-card click.
                   onClick={(event) => event.stopPropagation()}
                   className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 text-white shadow-lg transition-transform hover:scale-105"
                 >
@@ -149,6 +151,7 @@ const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
+                  // Keep social links from also triggering the profile-card click.
                   onClick={(event) => event.stopPropagation()}
                   className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-transform hover:scale-105"
                 >

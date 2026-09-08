@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+// Prefix asset paths so images work both locally and on GitHub Pages.
 const withBase = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\/+/, '')}`
 
 const ProjectsSection = () => {
@@ -53,6 +54,7 @@ const ProjectsSection = () => {
   ]
 
   const navigateToBachelor = () => {
+    // The highlighted bachelor card is keyboard/click accessible and routes to the detail page.
     if ((window as any).REACT_APP_NAVIGATE) {
       (window as any).REACT_APP_NAVIGATE('/projects/bachelor')
       return

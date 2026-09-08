@@ -22,6 +22,7 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
+      // From subpages, navigate home first so the target section exists before scrolling.
       window.REACT_APP_NAVIGATE('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
@@ -42,6 +43,7 @@ const Navbar = () => {
   ];
 
   const navigateToBachelor = () => {
+    // Prefer React Router navigation; fallback keeps the link working before the router helper is ready.
     if (window.REACT_APP_NAVIGATE) {
       window.REACT_APP_NAVIGATE('/projects/bachelor');
     } else {
