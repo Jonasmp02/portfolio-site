@@ -36,9 +36,8 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Hjem', id: 'hero' },
-    { name: 'Om oss', id: 'about' },
     { name: 'Prosjekter', id: 'projects' },
-    { name: 'Team', id: 'team' },
+    { name: 'Team', id: 'about' },
     { name: 'Kontakt', id: 'contact' },
   ];
 
