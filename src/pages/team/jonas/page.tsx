@@ -162,6 +162,29 @@ const JonasPage = () => {
         </div>
       </section>
 
+      {/* Presentation Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl shadow-xl overflow-hidden">
+            <img
+              src={withBase('images/linkdn pres.png')}
+              alt="LinkedIn-innlegg fra presentasjon hos Kartverket"
+              className="w-full object-cover"
+            />
+            <div className="p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                Presentasjon hos <span className="gradient-text">Kartverket</span>
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                Under GeoAI-konferansen hos Kartverket presenterte vi bachelorprosjektet vårt sammen med Knowit og
+                Telenor Maritime. Presentasjonen handlet om hvordan agentbasert AI kan brukes til å modernisere
+                tradisjonelle dashboards og støtte bedre beslutninger i maritim drift.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Competencies Section */}
       <section className="py-16 bg-gradient-to-r from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
