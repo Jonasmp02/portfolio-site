@@ -10,7 +10,7 @@ const AboutSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.3 }
+      { threshold: 0.05 }
     )
 
     const element = document.getElementById('about')

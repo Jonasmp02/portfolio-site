@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/feature/Navbar';
 import Footer from '../../../components/feature/Footer';
 
@@ -88,14 +89,26 @@ const BachelorPage = () => {
               </p>
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white/10 p-3">
+            <Link
+              to="/team"
+              aria-label="Møt teamet bak bachelorprosjektet"
+              className="group relative block rounded-3xl overflow-hidden shadow-2xl bg-white/10 p-3 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              <div className="relative overflow-hidden rounded-2xl">
               <img
                 src={withBase('images/Guttasmiler.jpg')}
                 alt="Code 9 bachelor project team"
-                className="w-full h-80 object-cover rounded-2xl"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105 motion-reduce:transition-none"
                 style={{ objectPosition: '30% 60%' }}
               />
-            </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 motion-reduce:transition-none">
+                  <span className="absolute bottom-6 left-6 right-6 flex items-center justify-between gap-4 text-white text-xl font-semibold">
+                    Møt teamet
+                    <i className="ri-arrow-right-line" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,6 +1,11 @@
 # dependencies
 node_modules/
 
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
 # Vite build output + cache
 dist/
 out/

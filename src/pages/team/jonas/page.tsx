@@ -55,14 +55,14 @@ const JonasPage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"></div>
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-violet-700 via-indigo-600 to-blue-700">
+        <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/20 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Profile Image */}
             <div className="relative">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/30">
                   <img
                     src={withBase('images/jonas.jpg')}
                     alt="Jonas Moen Pettersen"
@@ -78,10 +78,10 @@ const JonasPage = () => {
             {/* Profile Info */}
             <div className="space-y-6">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Jonas Moen <span className="gradient-text">Pettersen</span>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  Jonas Moen <span className="text-blue-100">Pettersen</span>
                 </h1>
-                <p className="text-xl text-gray-600 mb-6">
+                <p className="text-xl text-blue-100 mb-6">
                   24 år gammel • Ski/Trondheim • Bachelor i IT og informasjonssystemer • Master i informatikk ved NTNU
                 </p>
 
@@ -106,9 +106,9 @@ const JonasPage = () => {
                 </div>
               </div>
 
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Kort om meg</h3>
-                <p className="text-gray-600 leading-relaxed">
+              <div className="bg-white/10 border border-white/25 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+                <h3 className="text-lg font-semibold text-white mb-3">Kort om meg</h3>
+                <p className="text-blue-50 leading-relaxed">
                   Student med bachelor i IT og informasjonssystemer, og går nå master i informatikk ved NTNU.
                   Jeg trives med design, programmering og kunstig intelligens, og liker å finne løsninger som kombinerer
                   praktiske behov med nye ideer.

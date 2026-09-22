@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const withBase = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\/+/, '')}`
 
@@ -10,7 +11,7 @@ const TeamSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.3 }
+      { threshold: 0.05 }
     )
 
     const element = document.getElementById('team')
@@ -42,12 +43,6 @@ const TeamSection = () => {
     },
   ]
 
-  const handleMemberClick = (link: string) => {
-    if ((window as any).REACT_APP_NAVIGATE) {
-      (window as any).REACT_APP_NAVIGATE(link)
-    }
-  }
-
   return (
     <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,10 +63,11 @@ const TeamSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div
+              <Link
+                to={member.link}
+                aria-label={`Les om ${member.name}`}
                 key={index}
                 className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
-                onClick={() => handleMemberClick(member.link)}
               >
                 {/* Profile Image */}
                 <div className="relative h-80 overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300">
@@ -93,10 +89,10 @@ const TeamSection = () => {
                   </div>
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Name overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform md:translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300">
                     <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                     <div className="flex items-center text-blue-200">
                       <span className="text-sm">Mer om meg</span>
@@ -105,11 +101,11 @@ const TeamSection = () => {
                   </div>
 
                   {/* Click indicator */}
-                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300">
                     <i className="ri-external-link-line text-white text-lg"></i>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

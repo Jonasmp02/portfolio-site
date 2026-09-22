@@ -1,8 +1,4 @@
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +18,6 @@ const Footer = () => {
               {[
                 { name: 'Hjem', id: 'hero' },
                 { name: 'Prosjekter', id: 'projects' },
-                { name: 'Team', id: 'about' },
                 { name: 'Kontakt', id: 'contact' }
               ].map((item) => (
                 <li key={item.id}>

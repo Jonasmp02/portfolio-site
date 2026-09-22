@@ -14,13 +14,6 @@ const HeroSection = () => {
     }
   };
 
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const navigateToJonas = () => {
     // The hero image behaves like the team cards and links to the personal profile page.
     if ((window as any).REACT_APP_NAVIGATE) {
@@ -85,7 +78,7 @@ const HeroSection = () => {
               </button>
 
               <button
-                onClick={scrollToAbout}
+                onClick={navigateToJonas}
                 className="group glass-effect text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
               >
                 Om prosjektmiljøet
@@ -165,7 +158,7 @@ const HeroSection = () => {
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <button
-          onClick={scrollToAbout}
+          onClick={scrollToProjects}
           className="flex flex-col items-center text-white/70 hover:text-white transition-colors duration-300 cursor-pointer"
         >
           <span className="text-sm mb-2">Scroll ned</span>
