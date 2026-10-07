@@ -1,18 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Redirecting...</title>
     <script>
+      // GitHub Pages SPA fallback: send deep links to index.html#<original-path>.
+      // src/main.tsx restores the original path before BrowserRouter mounts.
+      // The base is read from the first path segment (the repo name), so this
+      // keeps working if the repository is renamed.
       (function () {
-        var base = '/gruppe9site';
+        var segment = window.location.pathname.split('/')[1];
+        var base = segment ? '/' + segment : '';
         var path = window.location.pathname + window.location.search + window.location.hash;
-        if (path.indexOf(base) === 0) {
-          window.location.replace(base + '/#' + path);
-        } else {
-          window.location.replace(base + '/');
-        }
+        window.location.replace(base + '/#' + path);
       })();
     </script>
   </head>
