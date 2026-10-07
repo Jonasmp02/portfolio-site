@@ -44,23 +44,23 @@ const KartverketPage = () => {
 
   const projectImages = [
     {
-      src: "https://readdy.ai/api/search-image?query=Interactive%20web%20application%20interface%20showing%20geographical%20maps%20and%20database%20integration%2C%20modern%20dashboard%20design%20with%20clean%20UI%20elements%2C%20ASP.NET%20Core%20MVC%20application%2C%20professional%20web%20development%2C%20green%20and%20blue%20color%20scheme&width=800&height=600&seq=kartverket-interface&orientation=landscape",
+      src: `${import.meta.env.BASE_URL}images/kartverket/web-interface.jpg`,
       title: "Interactive Web Interface",
       description: "Moderne webapplikasjon med kartfunksjonalitet"
     },
     {
-  src: "/images/kartverket/gutta.jpg",
+  src: `${import.meta.env.BASE_URL}images/kartverket/gutta.jpg`,
   title: "Development Team",
   description: "Samarbeid og systemutvikling"
 },
 
     {
-      src: "https://readdy.ai/api/search-image?query=Code%20architecture%20diagram%20showing%20MVC%20structure%2C%20database%20connections%2C%20and%20system%20design%2C%20technical%20documentation%2C%20software%20architecture%20visualization%2C%20clean%20professional%20layout&width=800&height=600&seq=kartverket-architecture&orientation=landscape",
+      src: `${import.meta.env.BASE_URL}images/kartverket/system-architecture.jpg`,
       title: "System Architecture",
       description: "MVC-struktur og databaseintegrasjon"
     },
     {
-      src: "https://readdy.ai/api/search-image?query=Secure%20login%20interface%20with%20identity%20management%20features%2C%20authentication%20forms%2C%20user%20security%20dashboard%2C%20modern%20web%20security%20design%2C%20professional%20login%20system&width=800&height=600&seq=kartverket-security&orientation=landscape",
+      src: `${import.meta.env.BASE_URL}images/kartverket/security.jpg`,
       title: "Security Implementation",
       description: "Sikker pålogging og identitetshåndtering"
     }

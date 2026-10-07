@@ -107,7 +107,7 @@ const Navbar = () => {
                 }`}
               >
                 <div className="text-base font-semibold">Bachelorprosjekt</div>
-                <div className="text-sm opacity-75">(Knowit)</div>
+                <div className="text-sm opacity-75">(Knowit + Telenor Maritime)</div>
               </button>
             </div>
           </div>
@@ -154,7 +154,7 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 w-full text-left cursor-pointer mt-2 border-t border-gray-200 pt-3"
               >
                 <div>Bachelorprosjekt</div>
-                <div className="text-sm opacity-75">(Knowit)</div>
+                <div className="text-sm opacity-75">(Knowit + Telenor Maritime)</div>
               </button>
             </div>
           </div>

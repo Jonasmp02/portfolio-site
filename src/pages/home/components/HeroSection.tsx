@@ -29,7 +29,7 @@ const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(37, 99, 235, 0.8) 100%), url('https://readdy.ai/api/search-image?query=Modern%20tech%20workspace%20with%20multiple%20monitors%20displaying%20code%20and%20data%20visualizations%2C%20clean%20minimalist%20office%20environment%20with%20natural%20lighting%2C%20professional%20software%20development%20atmosphere%2C%20contemporary%20design%20elements%2C%20soft%20purple%20and%20blue%20color%20scheme%2C%20left%20side%20should%20be%20darker%20for%20text%20overlay%2C%20right%20side%20lighter%20for%20video%20content&width=1920&height=1080&seq=hero-bg-split-purple&orientation=landscape')`,
+        backgroundImage: `linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(37, 99, 235, 0.8) 100%), url('${import.meta.env.BASE_URL}images/hero-bg.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
