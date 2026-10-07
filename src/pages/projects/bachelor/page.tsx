@@ -135,10 +135,12 @@ const BachelorPage = () => {
             <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
               <div className="bg-gradient-to-br from-violet-600 to-blue-700 p-8 md:p-10 text-white">
                 <p className="text-violet-200 font-semibold mb-3">Min rolle</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-5">Prosjektleder og bindeledd mot stakeholders</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-5">Utvikler og prosjektleder</h2>
                 <p className="text-violet-100 leading-relaxed">
-                  I bachelorprosjektet hadde jeg ansvar for å holde oversikt over fremdrift, koordinere arbeid i gruppen
-                  og sørge for tydelig kommunikasjon med eksterne parter gjennom prosjektperioden.
+                  Jeg var med på utviklingen og programmeringen gjennom hele prosjektet, på lik linje med resten av gruppen.
+                  Jeg utforsket og testet nye teknologier, vurderte hvilke som passet best for løsningen, og brukte AI aktivt
+                  i utviklingsarbeidet. I tillegg hadde jeg ansvaret som prosjektleder: jeg holdt oversikt over fremdrift,
+                  koordinerte arbeidet i gruppen og hadde hovedansvaret for stakeholder-kontakten med Knowit og Telenor Maritime.
                 </p>
               </div>
 
@@ -146,16 +148,24 @@ const BachelorPage = () => {
                 <h3 className="text-2xl font-bold text-gray-900 mb-5">Hva jeg lærte</h3>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    Rollen som prosjektleder ga meg erfaring med å gjøre uklare behov om til konkrete oppgaver, prioritere
-                    arbeid og holde teamet samlet rundt felles mål.
+                    Teknisk lærte jeg hvordan man vurderer og tar i bruk ny teknologi i et åpent prosjekt, blant annet lokale
+                    språkmodeller, RAG og tidsseriedata, og hvordan AI-verktøy kan brukes effektivt i utviklingen av en større kodebase.
                   </p>
                   <p>
-                    Kontakten med stakeholders lærte meg hvor viktig det er å stille gode spørsmål, avklare forventninger
-                    tidlig og oversette tekniske valg til forklaringer som gir mening for både fagpersoner og samarbeidspartnere.
+                    Som prosjektleder lærte jeg å gjøre uklare behov om til konkrete oppgaver, prioritere arbeid og holde teamet
+                    samlet rundt felles mål. Jeg så også hvor viktig et tydelig scope og en god arbeidsmetodikk er for å jobbe
+                    effektivt og trygt sammen i et team.
                   </p>
                   <p>
-                    Jeg fikk også bedre forståelse for hvordan teknisk utvikling, dokumentasjon, møtestruktur og relasjonsbygging
-                    henger sammen når et prosjekt skal levere noe som faktisk kan vurderes og brukes videre.
+                    Gjennom stakeholder-kontakten med Knowit og Telenor Maritime lærte jeg å sette opp møter, stille gode spørsmål
+                    og få tydelige avklaringer på hva kunden forventer og ønsker. Jeg presenterte også løsningen for andre bedrifter,
+                    og fikk erfaring med å forklare tekniske valg på en måte som gir mening for både fagpersoner og samarbeidspartnere.
+                  </p>
+                  <p>
+                    Ved å jobbe fra Knowits kontor fikk jeg kjenne på hvordan det er å jobbe på en faktisk arbeidsplass, og lærte å
+                    bruke ressursene der, som å søke råd og innspill fra erfarne konsulenter. Jeg fikk også se hvordan teknisk
+                    utvikling, dokumentasjon, møtestruktur og relasjonsbygging henger sammen når et prosjekt skal levere noe som
+                    faktisk kan brukes videre.
                   </p>
                 </div>
               </div>

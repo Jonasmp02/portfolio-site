@@ -134,27 +134,27 @@ const JonasPage = () => {
 
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
                 <p>
-                  Jeg heter Jonas, er 24 år gammel og kommer fra Ski, men bor også i Trondheim i forbindelse med studier.
-                  Jeg har en bachelor i IT og informasjonssystemer, og går nå master i informatikk ved NTNU.
-                  Tidligere arbeidserfaringer har bidratt til å gi meg gode samarbeidsevner, struktur i arbeidsprosesser
-                  og viktige sosiale ferdigheter. I tillegg har jeg bygget min egen PC, noe som har gitt meg innsikt i
-                  både maskinvare og systemforståelse.
+                  Jeg heter Jonas, er 24 år og kommer fra Ski, men bor i Trondheim mens jeg tar master i informatikk med
+                  retning Software Engineering ved NTNU. Før det tok jeg en bachelor i IT og informasjonssystemer ved
+                  Universitetet i Agder, der jeg avsluttet med et bachelorprosjekt for Knowit og Telenor Maritime.
                 </p>
 
                 <p>
-                  I gruppe arbeid bidrar jeg med variert kompetanse hvor kreativitet er en av mine styrker og jeg trives med å
-                  finne løsninger som kombinerer praktiske behov og nye ideer.
+                  Førstegangstjenesten i Forsvaret og flere sesonger hos Jernia har lært meg å jobbe strukturert, ta ansvar og
+                  samarbeide godt med folk med ulik bakgrunn.
                 </p>
 
                 <p>
-                  Innen IT interesserer jeg meg spesielt for design, programmering og kunstig intelligens. Jeg liker å jobbe med
-                  prosjekter der tekniske løsninger og brukervennlighet henger sammen, og er motivert av å samarbeide med andre
-                  for å nå gode resultater.
+                  I team bidrar jeg gjerne med kreativitet og nye ideer, og trives best når jeg kan finne løsninger som kombinerer
+                  praktiske behov med ny teknologi. Innen IT er jeg spesielt interessert i kunstig intelligens, programmering og
+                  design, og jeg bruker AI aktivt som verktøy i eget arbeid. Jeg motiveres av prosjekter der teknikk og
+                  brukeropplevelse henger sammen.
                 </p>
 
                 <p>
-                  På fritiden driver jeg med pc og er aktiv innen sport, særlig kampsport, fotball og styrketrening. Jeg setter pris
-                  på sosiale aktiviteter og liker å holde en god balanse mellom studier, trening og fritid.
+                  På fritiden er jeg aktiv innen kampsport, fotball, golf og styrketrening, og jeg spiller gjerne dataspill. Jeg har
+                  også bygget min egen PC, noe som har gitt meg god forståelse for maskinvare og hvordan systemer henger sammen.
+                  Jeg setter pris på sosiale aktiviteter og liker å holde en god balanse mellom studier, trening og fritid.
                 </p>
               </div>
             </div>
