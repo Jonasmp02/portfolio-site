@@ -72,6 +72,56 @@
   }
 }
 
+/* 404 page: the boat rocks on the waves and the shark fins circle back and forth. */
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(6px) rotate(3deg);
+  }
+}
+
+@keyframes swim {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(28px);
+  }
+}
+
+@keyframes swim-reverse {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-28px);
+  }
+}
+
+.animate-bob {
+  animation: bob 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.animate-swim {
+  animation: swim 5s ease-in-out infinite;
+}
+
+.animate-swim-reverse {
+  animation: swim-reverse 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bob,
+  .animate-swim,
+  .animate-swim-reverse {
+    animation: none;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
