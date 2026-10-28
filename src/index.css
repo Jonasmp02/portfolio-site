@@ -47,7 +47,15 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
+  /* For dark backgrounds, where the dark start of .gradient-text would disappear. */
+  .gradient-text-light {
+    background: linear-gradient(135deg, rgb(var(--accent-300)) 0%, rgb(var(--accent-500)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .glass-effect {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);

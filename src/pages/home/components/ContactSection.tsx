@@ -23,6 +23,16 @@ const ContactSection = ({
     return () => observer.disconnect();
   }, []);
 
+  const navigateToJonas = () => {
+    // Same navigation as the hero image, so it works both locally and under the GitHub Pages base path.
+    if ((window as any).REACT_APP_NAVIGATE) {
+      (window as any).REACT_APP_NAVIGATE('/team/jonas');
+      return;
+    }
+
+    window.location.href = `${import.meta.env.BASE_URL}team/jonas`;
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-accent-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -32,10 +42,10 @@ const ContactSection = ({
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Mer om <span className="gradient-text">prosjektet</span>
+            Vil du vite <span className="gradient-text-light">mer?</span>
           </h2>
           <p className="text-xl text-accent-200 max-w-2xl mx-auto mb-10">
-            Se repoet eller gå til teamet for mer kontekst om prosjektarbeidet og medlemssidene.
+            Les mer om bakgrunnen og erfaringen min, eller se koden bak denne nettsiden på GitHub.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -50,11 +60,11 @@ const ContactSection = ({
             </a>
             <button
               type="button"
-              onClick={() => document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={navigateToJonas}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-accent-100 text-sm font-semibold hover:bg-white/20 transition cursor-pointer"
             >
-              <i className="ri-team-line mr-2 text-lg"></i>
-              Se teamet
+              <i className="ri-user-line mr-2 text-lg"></i>
+              Mer om meg
             </button>
           </div>
         </div>

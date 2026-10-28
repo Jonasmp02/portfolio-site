@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold gradient-text mb-4">Jonas Moen Pettersen | Portefølje</h3>
+            <h3 className="text-xl font-bold gradient-text-light mb-4">Jonas Moen Pettersen | Portefølje</h3>
             <p className="text-gray-400 mb-4">
               Porteføljeside med bachelorprosjekt, studieprosjekter og erfaringer innen frontend, UX, data og kunstig intelligens.
             </p>
