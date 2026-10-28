@@ -93,7 +93,9 @@ Prosjekter:
 - FINN.no: forbedret kartfunksjonalitet og universell utforming.
 - Denne porteføljesiden: React, TypeScript, Tailwind CSS og Vite, hostet på GitHub Pages.
 
-Kontakt:
+Kontakt (når noen spør hvordan de kan kontakte Jonas, oppgi alltid e-post og mobil først):
+- E-post: jonazmp@gmail.com
+- Mobil: 953 06 110
 - GitHub: https://github.com/Jonasmp02
 - LinkedIn: https://www.linkedin.com/in/jonas-pettersen-073931382/`;
 
