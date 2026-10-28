@@ -29,7 +29,7 @@ const HeroSection = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(37, 99, 235, 0.8) 100%), url('${import.meta.env.BASE_URL}images/hero-bg.jpg')`,
+        backgroundImage: `linear-gradient(135deg, rgb(var(--brand-600) / 0.8) 0%, rgb(var(--accent-600) / 0.8) 100%), url('${import.meta.env.BASE_URL}images/hero-bg.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -42,17 +42,17 @@ const HeroSection = () => {
           }`}
         >
           <div className="text-left">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-100 mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-accent-100 mb-6 backdrop-blur-sm">
               <i className="ri-graduation-cap-line text-lg"></i>
               Masterstudent i informatikk ved NTNU
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               Jonas Moen
-              <span className="block text-4xl md:text-6xl text-blue-100 mt-2">Pettersen</span>
+              <span className="block text-4xl md:text-6xl text-accent-100 mt-2">Pettersen</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-purple-100 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 leading-relaxed max-w-2xl">
               Bachelor i IT og informasjonssystemer fra UiA. Jeg bygger digitale løsninger med fokus på frontend,
               brukervennlighet, data og kunstig intelligens.
             </p>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={scrollToProjects}
-                className="group bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-50 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer whitespace-nowrap"
+                className="group bg-white text-brand-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-50 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer whitespace-nowrap"
               >
                 Se prosjekter
                 <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
@@ -116,7 +116,7 @@ const HeroSection = () => {
 
                 <div className="absolute bottom-0 left-0 right-0 p-7 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">Jonas M. Pettersen</h3>
-                  <div className="flex items-center text-blue-100">
+                  <div className="flex items-center text-accent-100">
                     <span className="text-sm font-medium">Mer om meg</span>
                     <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                   </div>
@@ -146,7 +146,7 @@ const HeroSection = () => {
                   aria-label="LinkedIn"
                   // Keep social links from also triggering the profile-card click.
                   onClick={(event) => event.stopPropagation()}
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-transform hover:scale-105"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-600 text-white shadow-lg transition-transform hover:scale-105"
                 >
                   <i className="ri-linkedin-fill text-xl"></i>
                 </a>

@@ -71,19 +71,19 @@ const BachelorPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-violet-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-brand-50">
       <Navbar />
 
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-violet-600 to-blue-700">
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-brand-600 to-accent-700">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
-              <p className="text-violet-200 font-semibold mb-4">Knowit + Telenor Maritime</p>
+              <p className="text-brand-200 font-semibold mb-4">Knowit + Telenor Maritime</p>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Bachelorprosjekt <span className="text-violet-200">Agentic Observability</span>
+                Bachelorprosjekt <span className="text-brand-200">Agentic Observability</span>
               </h1>
-              <p className="text-xl text-violet-100 leading-relaxed">
+              <p className="text-xl text-brand-100 leading-relaxed">
                 Et bachelorprosjekt om agentbasert beslutningsstøtte for maritim drift, med fokus på sensordata,
                 forklarbarhet og praktisk bruk av AI.
               </p>
@@ -118,7 +118,7 @@ const BachelorPage = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {summaryCards.map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-                <div className="w-14 h-14 bg-gradient-to-r from-violet-500 to-blue-600 rounded-full flex items-center justify-center mb-6">
+                <div className="w-14 h-14 bg-gradient-to-r from-brand-500 to-accent-600 rounded-full flex items-center justify-center mb-6">
                   <i className={`${card.icon} text-white text-2xl`}></i>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">{card.title}</h2>
@@ -131,12 +131,12 @@ const BachelorPage = () => {
 
       <section className="pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-xl border border-violet-100 overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-xl border border-brand-100 overflow-hidden">
             <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="bg-gradient-to-br from-violet-600 to-blue-700 p-8 md:p-10 text-white">
-                <p className="text-violet-200 font-semibold mb-3">Min rolle</p>
+              <div className="bg-gradient-to-br from-brand-600 to-accent-700 p-8 md:p-10 text-white">
+                <p className="text-brand-200 font-semibold mb-3">Min rolle</p>
                 <h2 className="text-3xl md:text-4xl font-bold mb-5">Utvikler og prosjektleder</h2>
-                <p className="text-violet-100 leading-relaxed">
+                <p className="text-brand-100 leading-relaxed">
                   Jeg var med på utviklingen og programmeringen gjennom hele prosjektet, på lik linje med resten av gruppen.
                   Jeg utforsket og testet nye teknologier, vurderte hvilke som passet best for løsningen, og brukte AI aktivt
                   i utviklingsarbeidet. I tillegg hadde jeg ansvaret som prosjektleder: jeg holdt oversikt over fremdrift,
@@ -190,7 +190,7 @@ const BachelorPage = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-violet-50 to-blue-50 rounded-2xl p-8 border border-violet-100">
+            <div className="bg-gradient-to-br from-brand-50 to-accent-50 rounded-2xl p-8 border border-brand-100">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Teknologi</h2>
               <div className="flex flex-wrap gap-3">
                 {techStack.map((tech) => (
@@ -204,7 +204,7 @@ const BachelorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-r from-violet-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-brand-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -218,7 +218,7 @@ const BachelorPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {dataFlow.map((item, index) => (
               <div key={item.title} className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold mb-4">
+                <div className="w-10 h-10 bg-gradient-to-r from-brand-500 to-accent-600 rounded-full flex items-center justify-center text-white font-bold mb-4">
                   {index + 1}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.title}</h3>
@@ -251,7 +251,7 @@ const BachelorPage = () => {
               <button
                 type="button"
                 onClick={goToStatus}
-                className="inline-flex items-center bg-gradient-to-r from-violet-600 to-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:from-violet-700 hover:to-blue-700 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center bg-gradient-to-r from-brand-600 to-accent-600 text-white px-6 py-3 rounded-full font-semibold hover:from-brand-700 hover:to-accent-700 transition-all duration-300 cursor-pointer"
               >
                 Se statusnotater og historikk
                 <i className="ri-arrow-right-line ml-2"></i>

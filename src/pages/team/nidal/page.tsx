@@ -51,12 +51,12 @@ const NidalPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-accent-50">
       <Navbar />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-600/10 to-accent-600/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Profile Image */}
@@ -71,8 +71,8 @@ const NidalPage = () => {
                   />
                 </div>
                 {/* Floating decoration */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full opacity-30"></div>
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-brand-500 to-accent-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-accent-500 to-brand-500 rounded-full opacity-30"></div>
               </div>
             </div>
 
@@ -92,7 +92,7 @@ const NidalPage = () => {
                     href="https://github.com/dzemalen"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    className="w-12 h-12 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 cursor-pointer"
                   >
                     <i className="ri-github-fill text-xl"></i>
                   </a>
@@ -100,7 +100,7 @@ const NidalPage = () => {
                     href="https://www.linkedin.com/in/nidal-alendar-905a4b382/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    className="w-12 h-12 bg-gradient-to-r from-accent-500 to-brand-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 cursor-pointer"
                   >
                     <i className="ri-linkedin-fill text-xl"></i>
                   </a>
@@ -155,13 +155,13 @@ const NidalPage = () => {
       </section>
 
       {/* Competencies Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-brand-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Relevante <span className="gradient-text">Kompetanseområder IT</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -171,7 +171,7 @@ const NidalPage = () => {
                 <div className="space-y-2">
                   {comp.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="flex items-center">
-                      <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-3"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full mr-3"></div>
                       <span className="text-gray-600">{skill}</span>
                     </div>
                   ))}
@@ -189,13 +189,13 @@ const NidalPage = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Interesser & <span className="gradient-text">Hobbyer</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {interests.map((interest, index) => (
               <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                   <i className={`${interest.icon} text-white text-xl`}></i>
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{interest.title}</h3>
@@ -207,12 +207,12 @@ const NidalPage = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-accent-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
             La oss samarbeide!
           </h2>
-          <p className="text-xl text-purple-100 mb-8">
+          <p className="text-xl text-brand-100 mb-8">
             Interessert i å jobbe sammen eller lære mer om mine prosjekter?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -220,7 +220,7 @@ const NidalPage = () => {
               href="https://github.com/dzemalen"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap cursor-pointer"
+              className="bg-white text-brand-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-github-fill mr-2"></i>
               Se GitHub
@@ -229,7 +229,7 @@ const NidalPage = () => {
               href="https://www.linkedin.com/in/nidal-alendar-905a4b382/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-purple-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-800 transition-colors duration-300 whitespace-nowrap cursor-pointer"
+              className="bg-brand-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-800 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-linkedin-fill mr-2"></i>
               Kontakt på LinkedIn

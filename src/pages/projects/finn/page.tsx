@@ -127,16 +127,16 @@ const FinnPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-sky-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-accent-50">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-sky-500 to-blue-600">
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-accent-500 to-accent-600">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              FINN.no <span className="text-sky-300">Kart Redesign</span>
+              FINN.no <span className="text-accent-300">Kart Redesign</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Forbedring av tilgjengelighet og brukervennlighet gjennom universell utforming
@@ -169,7 +169,7 @@ const FinnPage = () => {
             </div>
 
             {/* Solution */}
-            <div className="bg-gradient-to-br from-sky-500 to-sky-600 rounded-3xl shadow-xl p-8 text-white">
+            <div className="bg-gradient-to-br from-accent-500 to-accent-600 rounded-3xl shadow-xl p-8 text-white">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
                 <i className="ri-accessibility-line text-2xl text-white"></i>
               </div>
@@ -184,14 +184,14 @@ const FinnPage = () => {
       </section>
 
       {/* Project Story with Slideshow */}
-      <section id="finn-project" className="py-16 bg-gradient-to-r from-blue-50 to-sky-50">
+      <section id="finn-project" className="py-16 bg-gradient-to-r from-accent-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Fra <span className="gradient-text">Analyse til Løsning</span>
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-blue-500 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-accent-500 to-accent-500 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -240,7 +240,7 @@ const FinnPage = () => {
                       onClick={() => setCurrentSlide(index)}
                       className={`w-3 h-3 rounded-full transition-colors duration-300 cursor-pointer ${
                         index === currentSlide 
-                          ? 'bg-gradient-to-r from-sky-500 to-blue-500' 
+                          ? 'bg-gradient-to-r from-accent-500 to-accent-500' 
                           : 'bg-gray-300 hover:bg-gray-400'
                       }`}
                     />
@@ -265,9 +265,9 @@ const FinnPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-sky-500/10 to-blue-500/10 rounded-2xl p-6 border border-sky-500/20">
+                <div className="bg-gradient-to-r from-accent-500/10 to-accent-500/10 rounded-2xl p-6 border border-accent-500/20">
                   <div className="flex items-center mb-3">
-                    <i className="ri-trophy-line text-2xl text-sky-600 mr-3"></i>
+                    <i className="ri-trophy-line text-2xl text-accent-600 mr-3"></i>
                     <h4 className="text-lg font-semibold text-gray-900">Målbare Resultater</h4>
                   </div>
                   <p className="text-gray-600">
@@ -295,11 +295,11 @@ const FinnPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {developmentSteps.map((step, index) => (
               <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-accent-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <i className={`${step.icon} text-white text-2xl`}></i>
                 </div>
                 <div className="flex items-center mb-3">
-                  <span className="w-8 h-8 bg-gradient-to-r from-sky-500 to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
+                  <span className="w-8 h-8 bg-gradient-to-r from-accent-500 to-accent-600 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">
                     {index + 1}
                   </span>
                   <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
@@ -312,7 +312,7 @@ const FinnPage = () => {
       </section>
 
       {/* UX Principles */}
-      <section className="py-16 bg-gradient-to-r from-sky-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-accent-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -326,7 +326,7 @@ const FinnPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {uxPrinciples.map((principle, index) => (
               <div key={index} className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <i className={`${principle.icon} text-white text-2xl`}></i>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{principle.title}</h3>
@@ -364,7 +364,7 @@ const FinnPage = () => {
       </section>
 
       {/* Key Improvements */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-sky-50">
+      <section className="py-16 bg-gradient-to-r from-accent-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -384,7 +384,7 @@ const FinnPage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-keyboard-line text-white text-2xl"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Tabbordre</h3>
@@ -394,7 +394,7 @@ const FinnPage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-sky-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-text-spacing text-white text-2xl"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Semantisk Struktur</h3>
@@ -407,12 +407,12 @@ const FinnPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-sky-500 to-blue-600">
+      <section className="py-16 bg-gradient-to-r from-accent-500 to-accent-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Interessert i vårt arbeid?
           </h2>
-          <p className="text-xl text-sky-100 mb-8">
+          <p className="text-xl text-accent-100 mb-8">
             Se flere av våre prosjekter eller ta kontakt for samarbeid
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -425,7 +425,7 @@ const FinnPage = () => {
             </a>
             <a
               href="#"
-              className="bg-sky-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-sky-300 transition-colors duration-300 whitespace-nowrap cursor-pointer"
+              className="bg-accent-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-accent-300 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-mail-line mr-2"></i>
               Kontakt Oss

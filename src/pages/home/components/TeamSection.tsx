@@ -44,7 +44,7 @@ const TeamSection = () => {
   ]
 
   return (
-    <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-accent-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`transition-all duration-1000 ${
@@ -58,7 +58,7 @@ const TeamSection = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Medlemmer og roller fra tidligere studie- og bachelorprosjekter
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mt-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent-500 to-brand-600 mx-auto rounded-full mt-6"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -94,7 +94,7 @@ const TeamSection = () => {
                   {/* Name overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform md:translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300">
                     <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                    <div className="flex items-center text-blue-200">
+                    <div className="flex items-center text-accent-200">
                       <span className="text-sm">Mer om meg</span>
                       <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                     </div>
@@ -111,7 +111,7 @@ const TeamSection = () => {
 
           {/* Team Philosophy */}
           <div className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+            <div className="bg-gradient-to-r from-accent-50 to-brand-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Vår filosofi</h3>
               <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Samarbeid, læring og nysgjerrighet driver oss.

@@ -21,9 +21,9 @@ export default function Button({
   const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-300 cursor-pointer whitespace-nowrap';
   
   const variants = {
-    primary: 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1',
+    primary: 'bg-gradient-to-r from-brand-600 to-accent-600 text-white hover:from-brand-700 hover:to-accent-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1',
     secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
-    outline: 'border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white'
+    outline: 'border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white'
   };
   
   const sizes = {

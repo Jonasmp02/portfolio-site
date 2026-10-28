@@ -7,24 +7,24 @@ const withBase = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 function TechnologyGraphic() {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-indigo-950 to-violet-900 p-6 sm:p-8 shadow-xl border border-indigo-800">
-      <div aria-hidden="true" className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-blue-500/20 blur-3xl" />
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-950 via-brand-950 to-brand-900 p-6 sm:p-8 shadow-xl border border-brand-800">
+      <div aria-hidden="true" className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-accent-500/20 blur-3xl" />
       <div className="relative">
         <div className="flex items-center justify-between gap-4 mb-6">
-          <span className="text-xs font-semibold uppercase tracking-widest text-blue-200">Bygget med</span>
-          <i className="ri-code-s-slash-line text-2xl text-violet-300" aria-hidden="true" />
+          <span className="text-xs font-semibold uppercase tracking-widest text-accent-200">Bygget med</span>
+          <i className="ri-code-s-slash-line text-2xl text-brand-300" aria-hidden="true" />
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {[
-            { name: 'React', detail: 'Komponenter', icon: 'ri-reactjs-line', color: 'text-cyan-300' },
-            { name: 'TypeScript', detail: 'Typesikker kode', icon: 'ri-code-box-line', color: 'text-blue-300' },
+            { name: 'React', detail: 'Komponenter', icon: 'ri-reactjs-line', color: 'text-accent-300' },
+            { name: 'TypeScript', detail: 'Typesikker kode', icon: 'ri-code-box-line', color: 'text-accent-300' },
             { name: 'Tailwind CSS', detail: 'Design og layout', icon: 'ri-palette-line', color: 'text-teal-300' },
-            { name: 'Vite', detail: 'Utvikling og bygg', icon: 'ri-flashlight-line', color: 'text-violet-300' },
+            { name: 'Vite', detail: 'Utvikling og bygg', icon: 'ri-flashlight-line', color: 'text-brand-300' },
           ].map((tech) => (
             <div key={tech.name} className="rounded-xl border border-white/15 bg-white/5 p-4">
               <i className={`${tech.icon} ${tech.color} text-3xl`} aria-hidden="true" />
               <p className="font-semibold text-white mt-2">{tech.name}</p>
-              <p className="text-xs text-blue-200 mt-1">{tech.detail}</p>
+              <p className="text-xs text-accent-200 mt-1">{tech.detail}</p>
             </div>
           ))}
         </div>
@@ -42,17 +42,17 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-slate-50">
       <Navbar />
       <main>
-        <section className="pt-32 pb-20 bg-gradient-to-br from-violet-700 via-indigo-600 to-blue-700 text-white">
+        <section className="pt-32 pb-20 bg-gradient-to-br from-brand-700 via-brand-600 to-accent-700 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link to="/" className="inline-flex items-center gap-2 text-blue-100 hover:text-white mb-10 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+            <Link to="/" className="inline-flex items-center gap-2 text-accent-100 hover:text-white mb-10 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
               <i className="ri-arrow-left-line" aria-hidden="true"></i>
               Tilbake til forsiden
             </Link>
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-blue-100 font-semibold mb-4">Eget prosjekt · Frontend og webdesign</p>
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">Personlig <span className="text-blue-100">portefølje</span></h1>
-                <p className="text-xl text-blue-50 leading-relaxed">
+                <p className="text-accent-100 font-semibold mb-4">Eget prosjekt · Frontend og webdesign</p>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">Personlig <span className="text-accent-100">portefølje</span></h1>
+                <p className="text-xl text-accent-50 leading-relaxed">
                   Nettsiden du er på nå. Et sted for å vise hvem jeg er, hva jeg har jobbet med,
                   og erfaringene jeg tar med meg fra studier og prosjekter.
                 </p>
@@ -79,7 +79,7 @@ export default function PortfolioPage() {
               { title: 'Arbeidsformen', icon: 'ri-code-s-slash-line', text: 'Porteføljen videreutvikles med AI-assistert arbeid. Jeg bruker egne ønsker og tilbakemeldinger til å forme innhold, struktur og visuelt uttrykk.' },
             ].map((item) => (
               <article key={item.title} className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
-                <i className={`${item.icon} text-3xl text-violet-600`} aria-hidden="true"></i>
+                <i className={`${item.icon} text-3xl text-brand-600`} aria-hidden="true"></i>
                 <h2 className="text-2xl font-bold text-gray-900 mt-5 mb-4">{item.title}</h2>
                 <p className="text-gray-600 leading-relaxed">{item.text}</p>
               </article>

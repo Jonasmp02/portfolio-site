@@ -81,8 +81,8 @@ const Navbar = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`px-3 py-2 rounded-md text-base font-semibold transition-colors cursor-pointer whitespace-nowrap ${
                     isScrolled 
-                      ? 'text-gray-700 hover:text-blue-600' 
-                      : 'text-white hover:text-blue-200'
+                      ? 'text-gray-700 hover:text-accent-600' 
+                      : 'text-white hover:text-accent-200'
                   }`}
                 >
                   {item.name}
@@ -93,7 +93,7 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-current={location.pathname === '/team/jonas' ? 'page' : undefined}
                 className={`px-3 py-2 rounded-md text-base font-semibold whitespace-nowrap transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                  isScrolled ? 'text-gray-700 hover:text-blue-600 aria-[current=page]:bg-violet-100' : 'text-white hover:bg-white/15 aria-[current=page]:bg-white/20'
+                  isScrolled ? 'text-gray-700 hover:text-accent-600 aria-[current=page]:bg-brand-100' : 'text-white hover:bg-white/15 aria-[current=page]:bg-white/20'
                 }`}
               >
                 Mer om meg
@@ -102,8 +102,8 @@ const Navbar = () => {
                 onClick={navigateToBachelor}
                 className={`ml-4 pl-4 border-l transition-colors cursor-pointer ${
                   isScrolled
-                    ? 'border-gray-300 text-gray-700 hover:text-blue-600'
-                    : 'border-white/30 text-white hover:text-blue-200'
+                    ? 'border-gray-300 text-gray-700 hover:text-accent-600'
+                    : 'border-white/30 text-white hover:text-accent-200'
                 }`}
               >
                 <div className="text-base font-semibold">Bachelorprosjekt</div>
@@ -117,8 +117,8 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2 rounded-md transition-colors cursor-pointer ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-blue-600' 
-                  : 'text-white hover:text-blue-200'
+                  ? 'text-gray-700 hover:text-accent-600' 
+                  : 'text-white hover:text-accent-200'
               }`}
               aria-label={isMobileMenuOpen ? 'Lukk meny' : 'Åpne meny'}
             >
@@ -136,7 +136,7 @@ const Navbar = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.id)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 w-full text-left cursor-pointer whitespace-nowrap"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent-600 hover:bg-gray-50 w-full text-left cursor-pointer whitespace-nowrap"
                 >
                   {item.name}
                 </button>
@@ -145,13 +145,13 @@ const Navbar = () => {
                 to="/team/jonas"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-current={location.pathname === '/team/jonas' ? 'page' : undefined}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 aria-[current=page]:bg-violet-100"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent-600 hover:bg-gray-50 aria-[current=page]:bg-brand-100"
               >
                 Mer om meg
               </Link>
               <button
                 onClick={navigateToBachelor}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 w-full text-left cursor-pointer mt-2 border-t border-gray-200 pt-3"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-accent-600 hover:bg-gray-50 w-full text-left cursor-pointer mt-2 border-t border-gray-200 pt-3"
               >
                 <div>Bachelorprosjekt</div>
                 <div className="text-sm opacity-75">(Knowit + Telenor Maritime)</div>

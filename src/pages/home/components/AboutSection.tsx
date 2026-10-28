@@ -20,14 +20,14 @@ const AboutSection = () => {
   }, [])
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-accent-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Bachelorteam og <span className="gradient-text">studieprosjekter</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-accent-500 to-brand-600 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -45,16 +45,16 @@ const AboutSection = () => {
 
               <div className="grid grid-cols-2 gap-6 mt-8">
                 <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="ri-code-s-slash-line text-2xl text-blue-600"></i>
+                  <div className="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="ri-code-s-slash-line text-2xl text-accent-600"></i>
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Teknologi</h3>
                   <p className="text-sm text-gray-600">React, TypeScript, Node.js og AI</p>
                 </div>
 
                 <div className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="ri-team-line text-2xl text-purple-600"></i>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="ri-team-line text-2xl text-brand-600"></i>
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Bachelorteam</h3>
                   <p className="text-sm text-gray-600">Samarbeid, planlegging og leveranser</p>
@@ -88,8 +88,8 @@ const AboutSection = () => {
                 />
               </div>
 
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-200 rounded-full opacity-50 animate-float"></div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-purple-200 rounded-full opacity-50 animate-float-delayed"></div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent-200 rounded-full opacity-50 animate-float"></div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-200 rounded-full opacity-50 animate-float-delayed"></div>
             </div>
           </div>
 

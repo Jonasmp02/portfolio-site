@@ -94,7 +94,7 @@ const KartverketPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-green-500 to-blue-600">
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-r from-green-500 to-accent-600">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
@@ -121,8 +121,8 @@ const KartverketPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Challenge */}
             <div className="bg-white rounded-3xl shadow-xl p-8">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <i className="ri-map-2-line text-2xl text-blue-600"></i>
+              <div className="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mb-6">
+                <i className="ri-map-2-line text-2xl text-accent-600"></i>
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Utfordringen</h2>
               <p className="text-gray-600 leading-relaxed text-lg">
@@ -148,14 +148,14 @@ const KartverketPage = () => {
       </section>
 
       {/* Project Story with Slideshow */}
-      <section id="kartverket-project" className="py-16 bg-gradient-to-r from-blue-50 to-green-50">
+      <section id="kartverket-project" className="py-16 bg-gradient-to-r from-accent-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Fra <span className="gradient-text">Idé til Ferdig Løsning</span>
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-accent-500 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -182,7 +182,7 @@ const KartverketPage = () => {
                       onClick={() => setCurrentSlide(index)}
                       className={`w-3 h-3 rounded-full transition-colors duration-300 cursor-pointer ${
                         index === currentSlide 
-                          ? 'bg-gradient-to-r from-green-500 to-blue-500' 
+                          ? 'bg-gradient-to-r from-green-500 to-accent-500' 
                           : 'bg-gray-300 hover:bg-gray-400'
                       }`}
                     />
@@ -206,7 +206,7 @@ const KartverketPage = () => {
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-2xl p-6 border border-green-500/20">
+                <div className="bg-gradient-to-r from-green-500/10 to-accent-500/10 rounded-2xl p-6 border border-green-500/20">
                   <div className="flex items-center mb-3">
                     <i className="ri-government-line text-2xl text-green-600 mr-3"></i>
                     <h4 className="text-lg font-semibold text-gray-900">Kartverket Partnership</h4>
@@ -236,7 +236,7 @@ const KartverketPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {developmentSteps.map((step, index) => (
               <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-accent-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <i className={`${step.icon} text-white text-2xl`}></i>
                 </div>
                 <div className="flex items-center mb-3">
@@ -253,7 +253,7 @@ const KartverketPage = () => {
       </section>
 
       {/* Technical Implementation */}
-      <section className="py-16 bg-gradient-to-r from-blue-50 to-green-50">
+      <section className="py-16 bg-gradient-to-r from-accent-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -281,7 +281,7 @@ const KartverketPage = () => {
                 href="https://github.com/Pheeraphau/Gruppe12Sem3"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                className="inline-flex items-center bg-gradient-to-r from-green-500 to-accent-500 text-white px-6 py-3 rounded-full font-semibold hover:from-green-600 hover:to-accent-600 transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
                   <i className="ri-github-line mr-2"></i>
                   Se kode på GitHub
@@ -317,7 +317,7 @@ const KartverketPage = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-map-pin-line text-white text-2xl"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Interaktive Kart</h3>
@@ -337,7 +337,7 @@ const KartverketPage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-database-2-line text-white text-2xl"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Database Integration</h3>
@@ -350,7 +350,7 @@ const KartverketPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-green-500 to-blue-600">
+      <section className="py-16 bg-gradient-to-r from-green-500 to-accent-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Interessert i vårt arbeid?

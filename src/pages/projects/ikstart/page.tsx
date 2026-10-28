@@ -120,7 +120,7 @@ const IKStartPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-accent-50">
       <Navbar />
       
       {/* Hero Section */}
@@ -177,14 +177,14 @@ const IKStartPage = () => {
       </section>
 
       {/* Project Story with Slideshow */}
-      <section id="ikstart-project" className="py-16 bg-gradient-to-r from-purple-50 to-blue-50">
+      <section id="ikstart-project" className="py-16 bg-gradient-to-r from-brand-50 to-accent-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 Fra <span className="gradient-text">Idé til Ferdig Produkt</span>
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -234,7 +234,7 @@ const IKStartPage = () => {
                       onClick={() => setCurrentSlide(index)}
                       className={`w-3 h-3 rounded-full transition-colors duration-300 cursor-pointer ${
                         index === currentSlide 
-                          ? 'bg-gradient-to-r from-purple-500 to-blue-500' 
+                          ? 'bg-gradient-to-r from-brand-500 to-accent-500' 
                           : 'bg-gray-300 hover:bg-gray-400'
                       }`}
                     />
@@ -289,7 +289,7 @@ const IKStartPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {developmentSteps.map((step, index) => (
               <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-accent-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <i className={`${step.icon} text-white text-2xl`}></i>
                 </div>
                 <div className="flex items-center mb-3">
@@ -306,7 +306,7 @@ const IKStartPage = () => {
       </section>
 
       {/* Video Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-brand-50 to-accent-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -352,7 +352,7 @@ const IKStartPage = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-notification-line text-white text-2xl"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Smart Varsling</h3>

@@ -24,7 +24,7 @@ const ContactSection = ({
   }, []);
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-accent-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div
           className={`transition-all duration-1000 ${
@@ -34,7 +34,7 @@ const ContactSection = ({
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Mer om <span className="gradient-text">prosjektet</span>
           </h2>
-          <p className="text-xl text-blue-200 max-w-2xl mx-auto mb-10">
+          <p className="text-xl text-accent-200 max-w-2xl mx-auto mb-10">
             Se repoet eller gå til teamet for mer kontekst om prosjektarbeidet og medlemssidene.
           </p>
 
@@ -43,7 +43,7 @@ const ContactSection = ({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-accent-600 to-brand-600 text-white text-sm font-semibold hover:from-accent-700 hover:to-brand-700 transition-all shadow-lg hover:shadow-xl"
             >
               <i className="ri-github-fill mr-2 text-lg"></i>
               Se GitHub-repo
@@ -51,7 +51,7 @@ const ContactSection = ({
             <button
               type="button"
               onClick={() => document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-blue-100 text-sm font-semibold hover:bg-white/20 transition cursor-pointer"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-accent-100 text-sm font-semibold hover:bg-white/20 transition cursor-pointer"
             >
               <i className="ri-team-line mr-2 text-lg"></i>
               Se teamet
