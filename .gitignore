@@ -6,6 +6,10 @@ node_modules/
 .env.*
 !.env.example
 
+# Cloudflare Worker (chat-worker): local build/dev state and local secrets
+.wrangler/
+.dev.vars*
+
 # Vite build output + cache
 dist/
 out/
