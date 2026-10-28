@@ -34,6 +34,7 @@ jobs:
         env:
           BASE_PATH: "/${{ github.event.repository.name }}/"
           IS_PREVIEW: "false"
+          VITE_CHAT_API_URL: ${{ vars.CHAT_API_URL }}
         run: npm run build
 
       - name: Upload artifact
