@@ -1,7 +1,34 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../../../i18n/useLanguage';
+
+const content = {
+  no: {
+    badge: 'Masterstudent i informatikk ved NTNU',
+    intro:
+      'Bachelor i IT og informasjonssystemer fra UiA. Jeg bygger digitale løsninger med fokus på frontend, brukervennlighet, data og kunstig intelligens.',
+    tags: ['Ski/Trondheim', 'Kunderelasjoner', 'UX og produkt', 'AI i jobbsammenheng'],
+    seeProjects: 'Se prosjekter',
+    projectEnvironment: 'Om prosjektmiljøet',
+    profileLabel: 'Mer om Jonas Moen Pettersen',
+    aboutMe: 'Mer om meg',
+    scrollDown: 'Scroll ned',
+  },
+  en: {
+    badge: 'Master’s student in computer science at NTNU',
+    intro:
+      'Bachelor’s degree in IT and information systems from UiA. I build digital solutions with a focus on frontend, usability, data and artificial intelligence.',
+    tags: ['Ski/Trondheim', 'Client relations', 'UX and product', 'AI in the workplace'],
+    seeProjects: 'See projects',
+    projectEnvironment: 'About the project environment',
+    profileLabel: 'More about Jonas Moen Pettersen',
+    aboutMe: 'About me',
+    scrollDown: 'Scroll down',
+  },
+};
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const c = content[useLanguage()];
 
   useEffect(() => {
     setIsVisible(true);
@@ -44,7 +71,7 @@ const HeroSection = () => {
           <div className="text-left">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-accent-100 mb-6 backdrop-blur-sm">
               <i className="ri-graduation-cap-line text-lg"></i>
-              Masterstudent i informatikk ved NTNU
+              {c.badge}
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -53,12 +80,11 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-brand-100 mb-8 leading-relaxed max-w-2xl">
-              Bachelor i IT og informasjonssystemer fra UiA. Jeg bygger digitale løsninger med fokus på frontend,
-              brukervennlighet, data og kunstig intelligens.
+              {c.intro}
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
-              {['Ski/Trondheim', 'Kunderelasjoner', 'UX og produkt', 'AI i jobbsammenheng'].map((item) => (
+              {c.tags.map((item) => (
                 <span
                   key={item}
                   className="rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm border border-white/20"
@@ -73,7 +99,7 @@ const HeroSection = () => {
                 onClick={scrollToProjects}
                 className="group bg-white text-brand-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-brand-50 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl cursor-pointer whitespace-nowrap"
               >
-                Se prosjekter
+                {c.seeProjects}
                 <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
               </button>
 
@@ -81,7 +107,7 @@ const HeroSection = () => {
                 onClick={navigateToJonas}
                 className="group glass-effect text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 cursor-pointer whitespace-nowrap"
               >
-                Om prosjektmiljøet
+                {c.projectEnvironment}
                 <i className="ri-arrow-down-line ml-2 group-hover:translate-y-1 transition-transform duration-300"></i>
               </button>
             </div>
@@ -103,7 +129,7 @@ const HeroSection = () => {
               }}
               role="button"
               tabIndex={0}
-              aria-label="Mer om Jonas Moen Pettersen"
+              aria-label={c.profileLabel}
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl border border-white/20 bg-white/10 backdrop-blur-sm transition-shadow duration-300 group-hover:shadow-[0_24px_60px_rgba(15,23,42,0.45)]">
                 <img
@@ -117,7 +143,7 @@ const HeroSection = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-7 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">Jonas M. Pettersen</h3>
                   <div className="flex items-center text-accent-100">
-                    <span className="text-sm font-medium">Mer om meg</span>
+                    <span className="text-sm font-medium">{c.aboutMe}</span>
                     <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
                   </div>
                 </div>
@@ -161,7 +187,7 @@ const HeroSection = () => {
           onClick={scrollToProjects}
           className="flex flex-col items-center text-white/70 hover:text-white transition-colors duration-300 cursor-pointer"
         >
-          <span className="text-sm mb-2">Scroll ned</span>
+          <span className="text-sm mb-2">{c.scrollDown}</span>
           <i className="ri-arrow-down-line text-2xl"></i>
         </button>
       </div>

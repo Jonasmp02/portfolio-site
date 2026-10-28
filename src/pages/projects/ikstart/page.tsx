@@ -1,8 +1,115 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/feature/Navbar';
 import Footer from '../../../components/feature/Footer';
+import { useLanguage } from '../../../i18n/useLanguage';
+
+const content = {
+  no: {
+    images: {
+      ideas: 'Ideer og prioriteringer',
+      mindMapTitle: 'Tankekart',
+      mindMap: 'Bestillingsflyt og kart',
+      wireframes: 'Tidlige wireframes',
+      figmaScreen: 'Skjerm fra Figma',
+    },
+    steps: [
+      { title: 'Tankekart og idémyldring', description: 'Vi utforsket utfordringene og mulige løsninger gjennom workshops.' },
+      { title: 'Navigasjonskart', description: 'Vi kartla strukturen i appen, inkludert sider som hjem, meny, bestilling og profil.' },
+      { title: 'Wireframes', description: 'Vi designet skisser av de viktigste skjermene for å sikre en enkel og brukervennlig reise.' },
+      { title: 'Figma-prototype', description: 'Til slutt utviklet vi en interaktiv prototype med Start sine gule og svarte profilfarger.' },
+    ],
+    titleHighlight: 'Digital Matapp',
+    subtitle: 'En innovativ løsning for å forbedre kampdagsopplevelsen på Sparebanken Sør Arena',
+    developedBy: 'Utviklet av studenter fra Universitetet i Agder',
+    challengeTitle: 'Utfordringen',
+    challengeText:
+      'Publikum opplevde lange køer i kioskområdene, spesielt i pausen, noe som skapte frustrasjon og svekket opplevelsen på Sparebanken Sør Arena.',
+    solutionTitle: 'Vår Løsning',
+    solutionText:
+      'En matapp som lar supportere forhåndsbestille mat og drikke, motta varsel når bestillingen er klar, og hente maten uten å stå i kø.',
+    journeyStart: 'Fra ',
+    journeyHighlight: 'Idé til Ferdig Produkt',
+    descriptionTitle: 'Prosjektbeskrivelse',
+    description1:
+      'I samarbeid med IK Start utviklet vi en løsning for å forbedre kampdagsopplevelsen på Sparebanken Sør Arena. Publikum opplevde lange køer i kioskområdene, spesielt i pausen, noe som skapte frustrasjon og svekket opplevelsen.',
+    description2:
+      'Vår løsning ble en matapp som lar supportere forhåndsbestille mat og drikke, motta varsel når bestillingen er klar, og hente maten uten å stå i kø.',
+    partnershipText: 'Utviklet i tett samarbeid med IK Start for å løse reelle utfordringer på stadion.',
+    processStart: 'Utviklings',
+    processHighlight: 'prosess',
+    processText: 'Arbeidet fulgte prinsippene for tjenestedesign og designtenkning',
+    videoStart: 'Se Prosjektet i ',
+    videoHighlight: 'Aksjon',
+    videoText: 'Få en dypere forståelse av vårt arbeid og resultater',
+    featuresStart: 'Nøkkel',
+    featuresHighlight: 'funksjoner',
+    preorderTitle: 'Forhåndsbestilling',
+    preorderText: 'Bestill mat og drikke før kampen eller i pausen for å unngå køer',
+    notifyTitle: 'Smart Varsling',
+    notifyText: 'Få beskjed når bestillingen din er klar for henting',
+    timeTitle: 'Tidsbesparelse',
+    timeText: 'Hent maten din uten å stå i kø og miss mindre av kampen',
+    ctaTitle: 'Interessert i arbeidet mitt?',
+    ctaText: 'Se flere av prosjektene mine, eller ta gjerne kontakt med meg',
+    ctaBack: 'Tilbake til porteføljen',
+    ctaContact: 'Kontakt meg',
+  },
+  en: {
+    images: {
+      ideas: 'Ideas and priorities',
+      mindMapTitle: 'Mind map',
+      mindMap: 'Ordering flow and map',
+      wireframes: 'Early wireframes',
+      figmaScreen: 'Screen from Figma',
+    },
+    steps: [
+      { title: 'Mind mapping and brainstorming', description: 'We explored the challenges and possible solutions through workshops.' },
+      { title: 'Navigation map', description: 'We mapped out the structure of the app, including pages such as home, menu, ordering and profile.' },
+      { title: 'Wireframes', description: 'We designed sketches of the most important screens to ensure a simple and user-friendly journey.' },
+      { title: 'Figma prototype', description: 'Finally, we developed an interactive prototype in Start’s yellow and black brand colors.' },
+    ],
+    titleHighlight: 'Digital Food App',
+    subtitle: 'An innovative solution to improve the match-day experience at Sparebanken Sør Arena',
+    developedBy: 'Developed by students from the University of Agder',
+    challengeTitle: 'The challenge',
+    challengeText:
+      'Spectators faced long queues at the kiosks, especially during half-time, which caused frustration and weakened the experience at Sparebanken Sør Arena.',
+    solutionTitle: 'Our Solution',
+    solutionText:
+      'A food app that lets supporters pre-order food and drinks, get notified when the order is ready, and pick it up without queuing.',
+    journeyStart: 'From ',
+    journeyHighlight: 'Idea to Finished Product',
+    descriptionTitle: 'Project description',
+    description1:
+      'In collaboration with IK Start, we developed a solution to improve the match-day experience at Sparebanken Sør Arena. Spectators faced long queues at the kiosks, especially during half-time, which caused frustration and weakened the experience.',
+    description2:
+      'Our solution was a food app that lets supporters pre-order food and drinks, get notified when the order is ready, and pick it up without queuing.',
+    partnershipText: 'Developed in close collaboration with IK Start to solve real challenges at the stadium.',
+    processStart: 'Development ',
+    processHighlight: 'process',
+    processText: 'The work followed the principles of service design and design thinking',
+    videoStart: 'See the Project in ',
+    videoHighlight: 'Action',
+    videoText: 'Get a deeper understanding of our work and results',
+    featuresStart: 'Key ',
+    featuresHighlight: 'features',
+    preorderTitle: 'Pre-ordering',
+    preorderText: 'Order food and drinks before the match or at half-time to avoid queues',
+    notifyTitle: 'Smart Notifications',
+    notifyText: 'Get notified when your order is ready for pickup',
+    timeTitle: 'Time saving',
+    timeText: 'Pick up your food without queuing and miss less of the match',
+    ctaTitle: 'Interested in my work?',
+    ctaText: 'See more of my projects, or feel free to get in touch',
+    ctaBack: 'Back to the portfolio',
+    ctaContact: 'Contact me',
+  },
+};
 
 const IKStartPage = () => {
+  const c = content[useLanguage()];
+
   // Set scroll position to top immediately, before any other effects
   useEffect(() => {
     // Force immediate scroll to top without smooth behavior
@@ -58,37 +165,37 @@ const IKStartPage = () => {
     {
     src: `${import.meta.env.BASE_URL}images/ikstart/postitest2.png`,
     title: "Post-it Layout 1",
-    description: "Ideer og prioriteringer"
+    description: c.images.ideas
   },
   {
     src: `${import.meta.env.BASE_URL}images/ikstart/postittest.png`,
     title: "Post-it Notes 2",
-    description: "Ideer og prioriteringer"
+    description: c.images.ideas
   },
     {
     src: `${import.meta.env.BASE_URL}images/ikstart/takekart.png`,
-    title: "Tankekart",
-    description: "Bestillingsflyt og kart"
+    title: c.images.mindMapTitle,
+    description: c.images.mindMap
   },
   {
     src: `${import.meta.env.BASE_URL}images/ikstart/wireframe1.png`,
     title: "Wireframe 1",
-    description: "Tidlige wireframes"
+    description: c.images.wireframes
   },
   {
     src: `${import.meta.env.BASE_URL}images/ikstart/wireframe2.png`,
     title: "Wireframe 2",
-    description: "Tidlige wireframes"
+    description: c.images.wireframes
   },
   {
     src: `${import.meta.env.BASE_URL}images/ikstart/figma2.png`,
     title: "Figma Screen 1",
-    description: "Skjerm fra Figma"
+    description: c.images.figmaScreen
   },
   {
     src: `${import.meta.env.BASE_URL}images/ikstart/figma3.png`,
     title: "Figma Screen 2",
-    description: "Skjerm fra Figma"
+    description: c.images.figmaScreen
   }
   ];
 
@@ -99,23 +206,23 @@ const IKStartPage = () => {
   const developmentSteps = [
     {
       icon: 'ri-lightbulb-line',
-      title: 'Tankekart og idémyldring',
-      description: 'Vi utforsket utfordringene og mulige løsninger gjennom workshops.'
+      title: c.steps[0].title,
+      description: c.steps[0].description
     },
     {
       icon: 'ri-route-line',
-      title: 'Navigasjonskart',
-      description: 'Vi kartla strukturen i appen, inkludert sider som hjem, meny, bestilling og profil.'
+      title: c.steps[1].title,
+      description: c.steps[1].description
     },
     {
       icon: 'ri-draft-line',
-      title: 'Wireframes',
-      description: 'Vi designet skisser av de viktigste skjermene for å sikre en enkel og brukervennlig reise.'
+      title: c.steps[2].title,
+      description: c.steps[2].description
     },
     {
       icon: 'ri-smartphone-line',
-      title: 'Figma-prototype',
-      description: 'Til slutt utviklet vi en interaktiv prototype med Start sine gule og svarte profilfarger.'
+      title: c.steps[3].title,
+      description: c.steps[3].description
     }
   ];
 
@@ -129,15 +236,15 @@ const IKStartPage = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              IK Start <span className="text-yellow-400">Digital Matapp</span>
+              IK Start <span className="text-yellow-400">{c.titleHighlight}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              En innovativ løsning for å forbedre kampdagsopplevelsen på Sparebanken Sør Arena
+              {c.subtitle}
             </p>
             <div className="flex justify-center">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <p className="text-lg">
-                  Utviklet av studenter fra Universitetet i Agder
+                  {c.developedBy}
                 </p>
               </div>
             </div>
@@ -154,10 +261,9 @@ const IKStartPage = () => {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
                 <i className="ri-error-warning-line text-2xl text-red-600"></i>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Utfordringen</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">{c.challengeTitle}</h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Publikum opplevde lange køer i kioskområdene, spesielt i pausen, noe som skapte 
-                frustrasjon og svekket opplevelsen på Sparebanken Sør Arena.
+                {c.challengeText}
               </p>
             </div>
 
@@ -166,10 +272,9 @@ const IKStartPage = () => {
               <div className="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center mb-6">
                 <i className="ri-smartphone-line text-2xl text-black"></i>
               </div>
-              <h2 className="text-3xl font-bold mb-6">Vår Løsning</h2>
+              <h2 className="text-3xl font-bold mb-6">{c.solutionTitle}</h2>
               <p className="leading-relaxed text-lg">
-                En matapp som lar supportere forhåndsbestille mat og drikke, motta varsel når 
-                bestillingen er klar, og hente maten uten å stå i kø.
+                {c.solutionText}
               </p>
             </div>
           </div>
@@ -182,7 +287,7 @@ const IKStartPage = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Fra <span className="gradient-text">Idé til Ferdig Produkt</span>
+                {c.journeyStart}<span className="gradient-text">{c.journeyHighlight}</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full"></div>
             </div>
@@ -246,15 +351,12 @@ const IKStartPage = () => {
               <div className="space-y-6">
                 <div className="h-64 sm:h-80 md:h-[420px] lg:h-[480px] flex flex-col justify-center">
                   <div className="bg-white rounded-2xl p-8 shadow-lg">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Prosjektbeskrivelse</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{c.descriptionTitle}</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    I samarbeid med IK Start utviklet vi en løsning for å forbedre kampdagsopplevelsen 
-                    på Sparebanken Sør Arena. Publikum opplevde lange køer i kioskområdene, spesielt 
-                    i pausen, noe som skapte frustrasjon og svekket opplevelsen.
+                    {c.description1}
                   </p>
                   <p className="text-gray-600 leading-relaxed">
-                    Vår løsning ble en matapp som lar supportere forhåndsbestille mat og drikke, 
-                    motta varsel når bestillingen er klar, og hente maten uten å stå i kø.
+                    {c.description2}
                   </p>
                 </div>
                 </div>
@@ -265,7 +367,7 @@ const IKStartPage = () => {
                     <h4 className="text-lg font-semibold text-gray-900">IK Start Partnership</h4>
                   </div>
                   <p className="text-gray-600">
-                    Utviklet i tett samarbeid med IK Start for å løse reelle utfordringer på stadion.
+                    {c.partnershipText}
                   </p>
                 </div>
               </div>
@@ -279,10 +381,10 @@ const IKStartPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Utviklings<span className="gradient-text">prosess</span>
+              {c.processStart}<span className="gradient-text">{c.processHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Arbeidet fulgte prinsippene for tjenestedesign og designtenkning
+              {c.processText}
             </p>
           </div>
 
@@ -310,10 +412,10 @@ const IKStartPage = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Se Prosjektet i <span className="gradient-text">Aksjon</span>
+              {c.videoStart}<span className="gradient-text">{c.videoHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600">
-              Få en dypere forståelse av vårt arbeid og resultater
+              {c.videoText}
             </p>
           </div>
 
@@ -336,7 +438,7 @@ const IKStartPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Nøkkel<span className="gradient-text">funksjoner</span>
+              {c.featuresStart}<span className="gradient-text">{c.featuresHighlight}</span>
             </h2>
           </div>
 
@@ -345,9 +447,9 @@ const IKStartPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-shopping-cart-line text-white text-2xl"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Forhåndsbestilling</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{c.preorderTitle}</h3>
               <p className="text-gray-600">
-                Bestill mat og drikke før kampen eller i pausen for å unngå køer
+                {c.preorderText}
               </p>
             </div>
 
@@ -355,9 +457,9 @@ const IKStartPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-brand-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-notification-line text-white text-2xl"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Smart Varsling</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{c.notifyTitle}</h3>
               <p className="text-gray-600">
-                Få beskjed når bestillingen din er klar for henting
+                {c.notifyText}
               </p>
             </div>
 
@@ -365,9 +467,9 @@ const IKStartPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-time-line text-white text-2xl"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Tidsbesparelse</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{c.timeTitle}</h3>
               <p className="text-gray-600">
-                Hent maten din uten å stå i kø og miss mindre av kampen
+                {c.timeText}
               </p>
             </div>
           </div>
@@ -378,25 +480,25 @@ const IKStartPage = () => {
       <section className="py-16 bg-gradient-to-r from-yellow-400 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Interessert i vårt arbeid?
+            {c.ctaTitle}
           </h2>
           <p className="text-xl text-yellow-100 mb-8">
-            Se flere av våre prosjekter eller ta kontakt for samarbeid
+            {c.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-arrow-left-line mr-2"></i>
-              Tilbake til Portfolio
-            </a>
+              {c.ctaBack}
+            </Link>
             <a
-              href="#"
+              href="mailto:jonazmp@gmail.com"
               className="bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-mail-line mr-2"></i>
-              Kontakt Oss
+              {c.ctaContact}
             </a>
           </div>
         </div>

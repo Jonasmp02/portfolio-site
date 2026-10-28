@@ -1,4 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../../../i18n/useLanguage';
+
+const content = {
+  no: {
+    titleStart: 'Vil du vite ',
+    titleHighlight: 'mer?',
+    text: 'Les mer om bakgrunnen og erfaringen min, eller se koden bak denne nettsiden på GitHub.',
+    github: 'Se GitHub-repo',
+    about: 'Mer om meg',
+  },
+  en: {
+    titleStart: 'Want to know ',
+    titleHighlight: 'more?',
+    text: 'Read more about my background and experience, or see the code behind this website on GitHub.',
+    github: 'See GitHub repo',
+    about: 'About me',
+  },
+};
 
 type Props = {
   githubUrl?: string;
@@ -8,6 +26,7 @@ const ContactSection = ({
   githubUrl = 'https://github.com/Jonasmp02/portfolio-site',
 }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
+  const c = content[useLanguage()];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,10 +61,10 @@ const ContactSection = ({
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Vil du vite <span className="gradient-text-light">mer?</span>
+            {c.titleStart}<span className="gradient-text-light">{c.titleHighlight}</span>
           </h2>
           <p className="text-xl text-accent-200 max-w-2xl mx-auto mb-10">
-            Les mer om bakgrunnen og erfaringen min, eller se koden bak denne nettsiden på GitHub.
+            {c.text}
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -56,7 +75,7 @@ const ContactSection = ({
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-accent-600 to-brand-600 text-white text-sm font-semibold hover:from-accent-700 hover:to-brand-700 transition-all shadow-lg hover:shadow-xl"
             >
               <i className="ri-github-fill mr-2 text-lg"></i>
-              Se GitHub-repo
+              {c.github}
             </a>
             <button
               type="button"
@@ -64,7 +83,7 @@ const ContactSection = ({
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white/10 border border-white/20 text-accent-100 text-sm font-semibold hover:bg-white/20 transition cursor-pointer"
             >
               <i className="ri-user-line mr-2 text-lg"></i>
-              Mer om meg
+              {c.about}
             </button>
           </div>
         </div>

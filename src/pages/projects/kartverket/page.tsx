@@ -1,9 +1,124 @@
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../../components/feature/Navbar';
 import Footer from '../../../components/feature/Footer';
+import { useLanguage } from '../../../i18n/useLanguage';
+
+const content = {
+  no: {
+    imageDescriptions: [
+      'Moderne webapplikasjon med kartfunksjonalitet',
+      'Samarbeid og systemutvikling',
+      'MVC-struktur og databaseintegrasjon',
+      'Sikker pålogging og identitetshåndtering',
+    ],
+    steps: [
+      { title: 'Arkitektur og oppsett', description: 'Vi etablerte en MVC-struktur som la grunnlaget for en skalerbar applikasjon.' },
+      { title: 'Frontend og skjema', description: 'Vi implementerte skjemaer og brukervennlig frontend for innhenting og visning av data.' },
+      { title: 'Kartintegrasjon', description: 'Vi koblet inn kartfunksjonalitet slik at brukere kunne interagere med geografisk informasjon.' },
+      { title: 'Database og identitetshåndtering', description: 'Applikasjonen ble koblet til en database med støtte for sikker innlogging og lagring av brukerdata.' },
+    ],
+    titleHighlight: 'Webapplikasjon',
+    subtitle: 'Interaktiv løsning med kart, database og sikker identitetshåndtering',
+    developedBy: 'Utviklet av studenter fra Universitetet i Agder',
+    challengeTitle: 'Utfordringen',
+    challengeText:
+      'Hvordan kan man presentere og organisere geografisk data på en interaktiv måte, samtidig som brukerne får en enkel og trygg opplevelse gjennom identitetshåndtering og sikker pålogging?',
+    solutionTitle: 'Vår Løsning',
+    solutionText:
+      'En ASP.NET Core MVC-applikasjon som kombinerer kartfunksjonalitet med brukervennlig webgrensesnitt, sikker database og identitetshåndtering.',
+    journeyStart: 'Fra ',
+    journeyHighlight: 'Idé til Ferdig Løsning',
+    descriptionTitle: 'Prosjektbeskrivelse',
+    description1:
+      'I samarbeid med Kartverket utviklet vi en løsning som kombinerte kartfunksjonalitet med en brukervennlig webapplikasjon. Prosjektet tok utgangspunkt i å bygge en ASP.NET Core MVC-applikasjon med integrasjon av kart, skjemafunksjoner og databasehåndtering.',
+    description2:
+      'Målet var å utforske hvordan man kan presentere og organisere geografisk data på en interaktiv måte, samtidig som brukerne får en enkel og trygg opplevelse gjennom identitetshåndtering og sikker pålogging.',
+    partnershipText: 'Utviklet i samarbeid med Kartverket for å utforske moderne webløsninger for geografisk data.',
+    processStart: 'Utviklings',
+    processHighlight: 'prosess',
+    processText: 'Arbeidet fulgte prinsipper for systemutvikling og god programmeringspraksis',
+    technicalStart: 'Teknisk ',
+    technicalHighlight: 'Implementering',
+    technicalText: 'Fra idé til kode - utdrag fra løsningen',
+    resultsTitle: 'Dokumentasjon og Resultater',
+    results1:
+      'Hele prosessen ble dokumentert for å sikre transparens og gjenbrukbarhet. Resultatet ble en prototype som demonstrerte hvordan Kartverket sine data kan brukes i en moderne webapplikasjon.',
+    results2:
+      'Løsningen fokuserte på funksjonalitet, sikkerhet og brukervennlighet, og viste hvordan geografisk informasjon kan presenteres på en interaktiv måte.',
+    seeCode: 'Se kode på GitHub',
+    featuresStart: 'Nøkkel',
+    featuresHighlight: 'funksjoner',
+    mapsTitle: 'Interaktive Kart',
+    mapsText: 'Avansert kartfunksjonalitet som lar brukere utforske geografisk data på en intuitiv måte',
+    loginTitle: 'Sikker Pålogging',
+    loginText: 'Robust identitetshåndtering og autentisering for trygg tilgang til systemet',
+    databaseText: 'Sømløs integrasjon med database for lagring og håndtering av brukerdata',
+    ctaTitle: 'Interessert i arbeidet mitt?',
+    ctaText: 'Se flere av prosjektene mine, eller ta gjerne kontakt med meg',
+    ctaBack: 'Tilbake til porteføljen',
+    ctaContact: 'Kontakt meg',
+  },
+  en: {
+    imageDescriptions: [
+      'Modern web application with map functionality',
+      'Collaboration and system development',
+      'MVC structure and database integration',
+      'Secure login and identity management',
+    ],
+    steps: [
+      { title: 'Architecture and setup', description: 'We set up an MVC structure that laid the foundation for a scalable application.' },
+      { title: 'Frontend and forms', description: 'We implemented forms and a user-friendly frontend for collecting and displaying data.' },
+      { title: 'Map integration', description: 'We added map functionality so users could interact with geographic information.' },
+      { title: 'Database and identity management', description: 'The application was connected to a database with support for secure login and storage of user data.' },
+    ],
+    titleHighlight: 'Web Application',
+    subtitle: 'An interactive solution with maps, a database and secure identity management',
+    developedBy: 'Developed by students from the University of Agder',
+    challengeTitle: 'The challenge',
+    challengeText:
+      'How can geographic data be presented and organized interactively, while users get a simple and safe experience through identity management and secure login?',
+    solutionTitle: 'Our Solution',
+    solutionText:
+      'An ASP.NET Core MVC application that combines map functionality with a user-friendly web interface, a secure database and identity management.',
+    journeyStart: 'From ',
+    journeyHighlight: 'Idea to Finished Solution',
+    descriptionTitle: 'Project description',
+    description1:
+      'In collaboration with Kartverket (the Norwegian Mapping Authority), we developed a solution that combined map functionality with a user-friendly web application. The project was based on building an ASP.NET Core MVC application with integrated maps, forms and database handling.',
+    description2:
+      'The goal was to explore how geographic data can be presented and organized interactively, while users get a simple and safe experience through identity management and secure login.',
+    partnershipText: 'Developed in collaboration with Kartverket to explore modern web solutions for geographic data.',
+    processStart: 'Development ',
+    processHighlight: 'process',
+    processText: 'The work followed principles of system development and good programming practice',
+    technicalStart: 'Technical ',
+    technicalHighlight: 'Implementation',
+    technicalText: 'From idea to code - excerpts from the solution',
+    resultsTitle: 'Documentation and Results',
+    results1:
+      'The whole process was documented to ensure transparency and reusability. The result was a prototype that demonstrated how Kartverket’s data can be used in a modern web application.',
+    results2:
+      'The solution focused on functionality, security and usability, and showed how geographic information can be presented interactively.',
+    seeCode: 'See code on GitHub',
+    featuresStart: 'Key ',
+    featuresHighlight: 'features',
+    mapsTitle: 'Interactive Maps',
+    mapsText: 'Advanced map functionality that lets users explore geographic data in an intuitive way',
+    loginTitle: 'Secure Login',
+    loginText: 'Robust identity management and authentication for safe access to the system',
+    databaseText: 'Seamless database integration for storing and managing user data',
+    ctaTitle: 'Interested in my work?',
+    ctaText: 'See more of my projects, or feel free to get in touch',
+    ctaBack: 'Back to the portfolio',
+    ctaContact: 'Contact me',
+  },
+};
 
 const KartverketPage = () => {
+  const c = content[useLanguage()];
+
   // Set scroll position to top immediately, before any other effects
   useEffect(() => {
     // Force immediate scroll to top without smooth behavior
@@ -46,46 +161,46 @@ const KartverketPage = () => {
     {
       src: `${import.meta.env.BASE_URL}images/kartverket/web-interface.jpg`,
       title: "Interactive Web Interface",
-      description: "Moderne webapplikasjon med kartfunksjonalitet"
+      description: c.imageDescriptions[0]
     },
     {
   src: `${import.meta.env.BASE_URL}images/kartverket/gutta.jpg`,
   title: "Development Team",
-  description: "Samarbeid og systemutvikling"
+  description: c.imageDescriptions[1]
 },
 
     {
       src: `${import.meta.env.BASE_URL}images/kartverket/system-architecture.jpg`,
       title: "System Architecture",
-      description: "MVC-struktur og databaseintegrasjon"
+      description: c.imageDescriptions[2]
     },
     {
       src: `${import.meta.env.BASE_URL}images/kartverket/security.jpg`,
       title: "Security Implementation",
-      description: "Sikker pålogging og identitetshåndtering"
+      description: c.imageDescriptions[3]
     }
   ];
 
   const developmentSteps = [
     {
       icon: 'ri-building-line',
-      title: 'Arkitektur og oppsett',
-      description: 'Vi etablerte en MVC-struktur som la grunnlaget for en skalerbar applikasjon.'
+      title: c.steps[0].title,
+      description: c.steps[0].description
     },
     {
       icon: 'ri-layout-line',
-      title: 'Frontend og skjema',
-      description: 'Vi implementerte skjemaer og brukervennlig frontend for innhenting og visning av data.'
+      title: c.steps[1].title,
+      description: c.steps[1].description
     },
     {
       icon: 'ri-map-line',
-      title: 'Kartintegrasjon',
-      description: 'Vi koblet inn kartfunksjonalitet slik at brukere kunne interagere med geografisk informasjon.'
+      title: c.steps[2].title,
+      description: c.steps[2].description
     },
     {
       icon: 'ri-database-line',
-      title: 'Database og identitetshåndtering',
-      description: 'Applikasjonen ble koblet til en database med støtte for sikker innlogging og lagring av brukerdata.'
+      title: c.steps[3].title,
+      description: c.steps[3].description
     }
   ];
 
@@ -99,15 +214,15 @@ const KartverketPage = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Kartverket <span className="text-green-300">Webapplikasjon</span>
+              Kartverket <span className="text-green-300">{c.titleHighlight}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Interaktiv løsning med kart, database og sikker identitetshåndtering
+              {c.subtitle}
             </p>
             <div className="flex justify-center">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                 <p className="text-lg">
-                  Utviklet av studenter fra Universitetet i Agder
+                  {c.developedBy}
                 </p>
               </div>
             </div>
@@ -124,11 +239,9 @@ const KartverketPage = () => {
               <div className="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mb-6">
                 <i className="ri-map-2-line text-2xl text-accent-600"></i>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Utfordringen</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">{c.challengeTitle}</h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Hvordan kan man presentere og organisere geografisk data på en interaktiv måte, 
-                samtidig som brukerne får en enkel og trygg opplevelse gjennom identitetshåndtering 
-                og sikker pålogging?
+                {c.challengeText}
               </p>
             </div>
 
@@ -137,10 +250,9 @@ const KartverketPage = () => {
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
                 <i className="ri-code-line text-2xl text-white"></i>
               </div>
-              <h2 className="text-3xl font-bold mb-6">Vår Løsning</h2>
+              <h2 className="text-3xl font-bold mb-6">{c.solutionTitle}</h2>
               <p className="leading-relaxed text-lg">
-                En ASP.NET Core MVC-applikasjon som kombinerer kartfunksjonalitet med 
-                brukervennlig webgrensesnitt, sikker database og identitetshåndtering.
+                {c.solutionText}
               </p>
             </div>
           </div>
@@ -153,7 +265,7 @@ const KartverketPage = () => {
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Fra <span className="gradient-text">Idé til Ferdig Løsning</span>
+                {c.journeyStart}<span className="gradient-text">{c.journeyHighlight}</span>
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-accent-500 mx-auto rounded-full"></div>
             </div>
@@ -193,16 +305,12 @@ const KartverketPage = () => {
               {/* Project Description */}
               <div className="space-y-6">
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Prosjektbeskrivelse</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{c.descriptionTitle}</h3>
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    I samarbeid med Kartverket utviklet vi en løsning som kombinerte kartfunksjonalitet 
-                    med en brukervennlig webapplikasjon. Prosjektet tok utgangspunkt i å bygge en 
-                    ASP.NET Core MVC-applikasjon med integrasjon av kart, skjemafunksjoner og databasehåndtering.
+                    {c.description1}
                   </p>
                   <p className="text-gray-600 leading-relaxed">
-                    Målet var å utforske hvordan man kan presentere og organisere geografisk data på en 
-                    interaktiv måte, samtidig som brukerne får en enkel og trygg opplevelse gjennom 
-                    identitetshåndtering og sikker pålogging.
+                    {c.description2}
                   </p>
                 </div>
 
@@ -212,7 +320,7 @@ const KartverketPage = () => {
                     <h4 className="text-lg font-semibold text-gray-900">Kartverket Partnership</h4>
                   </div>
                   <p className="text-gray-600">
-                    Utviklet i samarbeid med Kartverket for å utforske moderne webløsninger for geografisk data.
+                    {c.partnershipText}
                   </p>
                 </div>
               </div>
@@ -226,10 +334,10 @@ const KartverketPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Utviklings<span className="gradient-text">prosess</span>
+              {c.processStart}<span className="gradient-text">{c.processHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Arbeidet fulgte prinsipper for systemutvikling og god programmeringspraksis
+              {c.processText}
             </p>
           </div>
 
@@ -257,25 +365,22 @@ const KartverketPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Teknisk <span className="gradient-text">Implementering</span>
+              {c.technicalStart}<span className="gradient-text">{c.technicalHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600">
-              Fra idé til kode - utdrag fra løsningen
+              {c.technicalText}
             </p>
           </div>
 
           <div className="bg-white rounded-3xl shadow-2xl p-8">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Dokumentasjon og Resultater</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">{c.resultsTitle}</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Hele prosessen ble dokumentert for å sikre transparens og gjenbrukbarhet. 
-                  Resultatet ble en prototype som demonstrerte hvordan Kartverket sine data 
-                  kan brukes i en moderne webapplikasjon.
+                  {c.results1}
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Løsningen fokuserte på funksjonalitet, sikkerhet og brukervennlighet, 
-                  og viste hvordan geografisk informasjon kan presenteres på en interaktiv måte.
+                  {c.results2}
                 </p>
                 <a
                 href="https://github.com/Pheeraphau/Gruppe12Sem3"
@@ -284,7 +389,7 @@ const KartverketPage = () => {
                 className="inline-flex items-center bg-gradient-to-r from-green-500 to-accent-500 text-white px-6 py-3 rounded-full font-semibold hover:from-green-600 hover:to-accent-600 transition-all duration-300 cursor-pointer whitespace-nowrap"
                 >
                   <i className="ri-github-line mr-2"></i>
-                  Se kode på GitHub
+                  {c.seeCode}
                   </a>
 
               </div>
@@ -311,7 +416,7 @@ const KartverketPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Nøkkel<span className="gradient-text">funksjoner</span>
+              {c.featuresStart}<span className="gradient-text">{c.featuresHighlight}</span>
             </h2>
           </div>
 
@@ -320,9 +425,9 @@ const KartverketPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-accent-500 to-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-map-pin-line text-white text-2xl"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Interaktive Kart</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{c.mapsTitle}</h3>
               <p className="text-gray-600">
-                Avansert kartfunksjonalitet som lar brukere utforske geografisk data på en intuitiv måte
+                {c.mapsText}
               </p>
             </div>
 
@@ -330,9 +435,9 @@ const KartverketPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="ri-shield-check-line text-white text-2xl"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Sikker Pålogging</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{c.loginTitle}</h3>
               <p className="text-gray-600">
-                Robust identitetshåndtering og autentisering for trygg tilgang til systemet
+                {c.loginText}
               </p>
             </div>
 
@@ -342,7 +447,7 @@ const KartverketPage = () => {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Database Integration</h3>
               <p className="text-gray-600">
-                Sømløs integrasjon med database for lagring og håndtering av brukerdata
+                {c.databaseText}
               </p>
             </div>
           </div>
@@ -353,25 +458,25 @@ const KartverketPage = () => {
       <section className="py-16 bg-gradient-to-r from-green-500 to-accent-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Interessert i vårt arbeid?
+            {c.ctaTitle}
           </h2>
           <p className="text-xl text-green-100 mb-8">
-            Se flere av våre prosjekter eller ta kontakt for samarbeid
+            {c.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-arrow-left-line mr-2"></i>
-              Tilbake til Portfolio
-            </a>
+              {c.ctaBack}
+            </Link>
             <a
-              href="#"
+              href="mailto:jonazmp@gmail.com"
               className="bg-green-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-green-300 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-mail-line mr-2"></i>
-              Kontakt Oss
+              {c.ctaContact}
             </a>
           </div>
         </div>

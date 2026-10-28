@@ -1,8 +1,92 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../../../components/feature/Navbar'
 import Footer from '../../../components/feature/Footer'
+import { useLanguage } from '../../../i18n/useLanguage'
 
 const withBase = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\/+/, '')}`
+
+const content = {
+  no: {
+    subtitle: '24 år gammel • Ski/Trondheim • Bachelor i IT og informasjonssystemer • Master i informatikk ved NTNU',
+    shortAboutTitle: 'Kort om meg',
+    shortAbout:
+      'Student med bachelor i IT og informasjonssystemer, og går nå master i informatikk ved NTNU. Jeg trives med design, programmering og kunstig intelligens, og liker å finne løsninger som kombinerer praktiske behov med nye ideer.',
+    aboutStart: 'Om ',
+    about1:
+      'Jeg heter Jonas, er 24 år og kommer fra Ski, men bor i Trondheim mens jeg tar master i informatikk med retning Software Engineering ved NTNU. Før det tok jeg en bachelor i IT og informasjonssystemer ved Universitetet i Agder, der jeg avsluttet med et bachelorprosjekt for Knowit og Telenor Maritime.',
+    about2:
+      'Førstegangstjenesten i Forsvaret og flere sesonger hos Jernia har lært meg å jobbe strukturert, ta ansvar og samarbeide godt med folk med ulik bakgrunn.',
+    about3:
+      'I team bidrar jeg gjerne med kreativitet og nye ideer, og trives best når jeg kan finne løsninger som kombinerer praktiske behov med ny teknologi. Innen IT er jeg spesielt interessert i kunstig intelligens, programmering og design, og jeg bruker AI aktivt som verktøy i eget arbeid. Jeg motiveres av prosjekter der teknikk og brukeropplevelse henger sammen.',
+    about4:
+      'På fritiden er jeg aktiv innen kampsport, fotball, golf og styrketrening, og jeg spiller gjerne dataspill. Jeg har også bygget min egen PC, noe som har gitt meg god forståelse for maskinvare og hvordan systemer henger sammen. Jeg setter pris på sosiale aktiviteter og liker å holde en god balanse mellom studier, trening og fritid.',
+    presentationAlt: 'LinkedIn-innlegg fra presentasjon hos Kartverket',
+    presentationStart: 'Presentasjon hos ',
+    presentationText:
+      'Under GeoAI-konferansen hos Kartverket presenterte vi bachelorprosjektet vårt sammen med Knowit og Telenor Maritime. Presentasjonen handlet om hvordan agentbasert AI kan brukes til å modernisere tradisjonelle dashboards og støtte bedre beslutninger i maritim drift.',
+    skillsStart: 'Relevante ',
+    skillsHighlight: 'Kompetanseområder IT',
+    competencies: [
+      { category: 'Front-End', skills: ['JavaScript', 'HTML', 'CSS', 'Bootstrap', 'Figma'] },
+      { category: 'Back-End', skills: ['Python', 'Java', 'Node.js'] },
+      { category: 'Database', skills: ['MySQL'] },
+      { category: 'Arbeidsmetodikk', skills: ['Kunderelasjoner', 'AI i jobbsammenheng', 'AI-assistert arbeid'] },
+      { category: 'Utviklerverktøy', skills: ['Git/GitHub', 'Docker', 'Visual Studio', 'Visual Studio Code', 'PowerShell', 'Trello', 'Discord'] },
+    ],
+    interestsStart: 'Interesser & ',
+    interestsHighlight: 'Hobbyer',
+    interests: [
+      { icon: 'ri-computer-line', title: 'PC & Teknologi', description: 'Bygget min egen PC og systemforståelse' },
+      { icon: 'ri-palette-line', title: 'Design', description: 'Kreativitet og brukervennlige løsninger' },
+      { icon: 'ri-brain-line', title: 'AI i arbeid', description: 'Bruker AI som et praktisk verktøy i jobbsammenheng for å jobbe smartere, strukturere oppgaver og finne gode løsninger.' },
+      { icon: 'ri-football-line', title: 'Sport', description: 'Fotball og styrketrening' },
+    ],
+    ctaTitle: 'La oss samarbeide!',
+    ctaText: 'Interessert i å jobbe sammen eller lære mer om mine prosjekter?',
+    ctaGithub: 'Se GitHub',
+    ctaLinkedin: 'Kontakt på LinkedIn',
+  },
+  en: {
+    subtitle: '24 years old • Ski/Trondheim • Bachelor’s in IT and information systems • Master’s in computer science at NTNU',
+    shortAboutTitle: 'About me in brief',
+    shortAbout:
+      'Student with a bachelor’s degree in IT and information systems, now taking a master’s in computer science at NTNU. I enjoy design, programming and artificial intelligence, and like finding solutions that combine practical needs with new ideas.',
+    aboutStart: 'About ',
+    about1:
+      'My name is Jonas. I’m 24 and from Ski, but I live in Trondheim while taking a master’s in computer science, specializing in Software Engineering, at NTNU. Before that I completed a bachelor’s in IT and information systems at the University of Agder, finishing with a bachelor project for Knowit and Telenor Maritime.',
+    about2:
+      'Military service in the Norwegian Armed Forces and several seasons at Jernia have taught me to work in a structured way, take responsibility and collaborate well with people from different backgrounds.',
+    about3:
+      'In a team I like to contribute creativity and new ideas, and I thrive when I can find solutions that combine practical needs with new technology. Within IT I am especially interested in artificial intelligence, programming and design, and I actively use AI as a tool in my own work. I am motivated by projects where technology and user experience go hand in hand.',
+    about4:
+      'In my free time I do martial arts, football, golf and strength training, and I enjoy playing video games. I have also built my own PC, which has given me a good understanding of hardware and how systems fit together. I value social activities and like to keep a good balance between studies, training and free time.',
+    presentationAlt: 'LinkedIn post from the presentation at Kartverket',
+    presentationStart: 'Presentation at ',
+    presentationText:
+      'At the GeoAI conference at Kartverket (the Norwegian Mapping Authority), we presented our bachelor project together with Knowit and Telenor Maritime. The presentation was about how agent-based AI can be used to modernize traditional dashboards and support better decisions in maritime operations.',
+    skillsStart: 'Relevant ',
+    skillsHighlight: 'IT Skills',
+    competencies: [
+      { category: 'Front-End', skills: ['JavaScript', 'HTML', 'CSS', 'Bootstrap', 'Figma'] },
+      { category: 'Back-End', skills: ['Python', 'Java', 'Node.js'] },
+      { category: 'Database', skills: ['MySQL'] },
+      { category: 'Ways of working', skills: ['Client relations', 'AI in the workplace', 'AI-assisted work'] },
+      { category: 'Developer tools', skills: ['Git/GitHub', 'Docker', 'Visual Studio', 'Visual Studio Code', 'PowerShell', 'Trello', 'Discord'] },
+    ],
+    interestsStart: 'Interests & ',
+    interestsHighlight: 'Hobbies',
+    interests: [
+      { icon: 'ri-computer-line', title: 'PCs & Technology', description: 'Built my own PC and understand how systems work' },
+      { icon: 'ri-palette-line', title: 'Design', description: 'Creativity and user-friendly solutions' },
+      { icon: 'ri-brain-line', title: 'AI at work', description: 'Use AI as a practical tool at work to work smarter, structure tasks and find good solutions.' },
+      { icon: 'ri-football-line', title: 'Sports', description: 'Football and strength training' },
+    ],
+    ctaTitle: 'Let’s work together!',
+    ctaText: 'Interested in working together or learning more about my projects?',
+    ctaGithub: 'See GitHub',
+    ctaLinkedin: 'Contact on LinkedIn',
+  },
+}
 
 const JonasPage = () => {
   // Set scroll position to top immediately, before any other effects
@@ -14,6 +98,7 @@ const JonasPage = () => {
   }, [])
 
   const [isVisible, setIsVisible] = useState(false)
+  const c = content[useLanguage()]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,22 +118,8 @@ const JonasPage = () => {
     return () => observer.disconnect()
   }, [])
 
-  const competencies = [
-    { category: 'Front-End', skills: ['JavaScript', 'HTML', 'CSS', 'Bootstrap', 'Figma'] },
-    { category: 'Back-End', skills: ['Python', 'Java', 'Node.js' ] },
-    { category: 'Database', skills: ['MySQL'] },
-    { category: 'Arbeidsmetodikk', skills: ['Kunderelasjoner', 'AI i jobbsammenheng', 'AI-assistert arbeid'] },
-    { category: 'Utviklerverktøy', skills: ['Git/GitHub', 'Docker', 'Visual Studio', 'Visual Studio Code', 'PowerShell', 'Trello', 'Discord'] },
-
-  ]
-
-  const interests = [
-    { icon: 'ri-computer-line', title: 'PC & Teknologi', description: 'Bygget min egen PC og systemforståelse' },
-    { icon: 'ri-palette-line', title: 'Design', description: 'Kreativitet og brukervennlige løsninger' },
-    { icon: 'ri-brain-line', title: 'AI i arbeid', description: 'Bruker AI som et praktisk verktøy i jobbsammenheng for å jobbe smartere, strukturere oppgaver og finne gode løsninger.' },
-
-    { icon: 'ri-football-line', title: 'Sport', description: 'Fotball og styrketrening' },
-  ]
+  const competencies = c.competencies
+  const interests = c.interests
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-accent-50">
@@ -82,7 +153,7 @@ const JonasPage = () => {
                   Jonas Moen <span className="text-accent-100">Pettersen</span>
                 </h1>
                 <p className="text-xl text-accent-100 mb-6">
-                  24 år gammel • Ski/Trondheim • Bachelor i IT og informasjonssystemer • Master i informatikk ved NTNU
+                  {c.subtitle}
                 </p>
 
                 {/* Social Links */}
@@ -107,11 +178,9 @@ const JonasPage = () => {
               </div>
 
               <div className="bg-white/10 border border-white/25 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-                <h3 className="text-lg font-semibold text-white mb-3">Kort om meg</h3>
+                <h3 className="text-lg font-semibold text-white mb-3">{c.shortAboutTitle}</h3>
                 <p className="text-accent-50 leading-relaxed">
-                  Student med bachelor i IT og informasjonssystemer, og går nå master i informatikk ved NTNU.
-                  Jeg trives med design, programmering og kunstig intelligens, og liker å finne løsninger som kombinerer
-                  praktiske behov med nye ideer.
+                  {c.shortAbout}
                 </p>
               </div>
             </div>
@@ -129,32 +198,24 @@ const JonasPage = () => {
           >
             <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-                Om <span className="gradient-text">Jonas</span>
+                {c.aboutStart}<span className="gradient-text">Jonas</span>
               </h2>
 
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6">
                 <p>
-                  Jeg heter Jonas, er 24 år og kommer fra Ski, men bor i Trondheim mens jeg tar master i informatikk med
-                  retning Software Engineering ved NTNU. Før det tok jeg en bachelor i IT og informasjonssystemer ved
-                  Universitetet i Agder, der jeg avsluttet med et bachelorprosjekt for Knowit og Telenor Maritime.
+                  {c.about1}
                 </p>
 
                 <p>
-                  Førstegangstjenesten i Forsvaret og flere sesonger hos Jernia har lært meg å jobbe strukturert, ta ansvar og
-                  samarbeide godt med folk med ulik bakgrunn.
+                  {c.about2}
                 </p>
 
                 <p>
-                  I team bidrar jeg gjerne med kreativitet og nye ideer, og trives best når jeg kan finne løsninger som kombinerer
-                  praktiske behov med ny teknologi. Innen IT er jeg spesielt interessert i kunstig intelligens, programmering og
-                  design, og jeg bruker AI aktivt som verktøy i eget arbeid. Jeg motiveres av prosjekter der teknikk og
-                  brukeropplevelse henger sammen.
+                  {c.about3}
                 </p>
 
                 <p>
-                  På fritiden er jeg aktiv innen kampsport, fotball, golf og styrketrening, og jeg spiller gjerne dataspill. Jeg har
-                  også bygget min egen PC, noe som har gitt meg god forståelse for maskinvare og hvordan systemer henger sammen.
-                  Jeg setter pris på sosiale aktiviteter og liker å holde en god balanse mellom studier, trening og fritid.
+                  {c.about4}
                 </p>
               </div>
             </div>
@@ -168,17 +229,15 @@ const JonasPage = () => {
           <div className="bg-gradient-to-br from-gray-50 to-accent-50 rounded-3xl shadow-xl overflow-hidden">
             <img
               src={withBase('images/linkdn pres.png')}
-              alt="LinkedIn-innlegg fra presentasjon hos Kartverket"
+              alt={c.presentationAlt}
               className="w-full object-cover"
             />
             <div className="p-6 md:p-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                Presentasjon hos <span className="gradient-text">Kartverket</span>
+                {c.presentationStart}<span className="gradient-text">Kartverket</span>
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Under GeoAI-konferansen hos Kartverket presenterte vi bachelorprosjektet vårt sammen med Knowit og
-                Telenor Maritime. Presentasjonen handlet om hvordan agentbasert AI kan brukes til å modernisere
-                tradisjonelle dashboards og støtte bedre beslutninger i maritim drift.
+                {c.presentationText}
               </p>
             </div>
           </div>
@@ -190,7 +249,7 @@ const JonasPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Relevante <span className="gradient-text">Kompetanseområder IT</span>
+              {c.skillsStart}<span className="gradient-text">{c.skillsHighlight}</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full"></div>
           </div>
@@ -218,7 +277,7 @@ const JonasPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Interesser & <span className="gradient-text">Hobbyer</span>
+              {c.interestsStart}<span className="gradient-text">{c.interestsHighlight}</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-brand-500 to-accent-500 mx-auto rounded-full"></div>
           </div>
@@ -243,8 +302,8 @@ const JonasPage = () => {
       {/* Contact CTA */}
       <section className="py-16 bg-gradient-to-r from-brand-600 to-accent-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">La oss samarbeide!</h2>
-          <p className="text-xl text-brand-100 mb-8">Interessert i å jobbe sammen eller lære mer om mine prosjekter?</p>
+          <h2 className="text-3xl font-bold text-white mb-6">{c.ctaTitle}</h2>
+          <p className="text-xl text-brand-100 mb-8">{c.ctaText}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://github.com/Jonasmp02"
@@ -253,7 +312,7 @@ const JonasPage = () => {
               className="bg-white text-brand-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-github-fill mr-2"></i>
-              Se GitHub
+              {c.ctaGithub}
             </a>
             <a
               href="https://www.linkedin.com/in/jonas-pettersen-073931382/"
@@ -262,7 +321,7 @@ const JonasPage = () => {
               className="bg-brand-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-800 transition-colors duration-300 whitespace-nowrap cursor-pointer"
             >
               <i className="ri-linkedin-fill mr-2"></i>
-              Kontakt på LinkedIn
+              {c.ctaLinkedin}
             </a>
           </div>
         </div>

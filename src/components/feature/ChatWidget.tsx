@@ -1,26 +1,55 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
+import { useLanguage } from '../../i18n/useLanguage';
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
 // Set at build time (GitHub variable CHAT_API_URL, or .env.local when developing).
 const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL as string | undefined;
 
-const GREETING: ChatMessage = {
-  role: 'assistant',
-  content: 'Hei! 👋 Jeg er en AI-assistent som kan svare på spørsmål om Jonas. Hva lurer du på?',
+const content = {
+  no: {
+    greeting: 'Hei! 👋 Jeg er en AI-assistent som kan svare på spørsmål om Jonas. Hva lurer du på?',
+    suggestions: ['Hva gikk bachelorprosjektet ut på?', 'Hvilke teknologier kan Jonas?', 'Hvordan kontakter jeg Jonas?'],
+    limitReached:
+      'Takk for alle spørsmålene! 😊 Vil du vite mer, ta gjerne kontakt med Jonas på LinkedIn eller inviter til et intervju. Da svarer Jonas gjerne på resten selv.',
+    error: 'Beklager, jeg får ikke svart akkurat nå. Prøv igjen senere, eller kontakt Jonas på LinkedIn.',
+    title: 'Spør om Jonas',
+    subtitle: 'AI-assistent',
+    close: 'Lukk chat',
+    open: 'Åpne chat',
+    placeholder: 'Skriv et spørsmål...',
+    send: 'Send',
+    disclaimer: 'AI-genererte svar kan inneholde feil.',
+    button: 'Spør AI om meg',
+  },
+  en: {
+    greeting: 'Hi! 👋 I’m an AI assistant that can answer questions about Jonas. What would you like to know?',
+    suggestions: ['What was the bachelor project about?', 'Which technologies does Jonas know?', 'How can I contact Jonas?'],
+    limitReached:
+      'Thanks for all the questions! 😊 If you’d like to know more, feel free to contact Jonas on LinkedIn or invite Jonas to an interview. Jonas will gladly answer the rest in person.',
+    error: 'Sorry, I can’t answer right now. Please try again later, or contact Jonas on LinkedIn.',
+    title: 'Ask about Jonas',
+    subtitle: 'AI assistant',
+    close: 'Close chat',
+    open: 'Open chat',
+    placeholder: 'Type a question...',
+    send: 'Send',
+    disclaimer: 'AI-generated answers may contain mistakes.',
+    button: 'Ask AI about me',
+  },
 };
-
-const SUGGESTIONS = ['Hva gikk bachelorprosjektet ut på?', 'Hvilke teknologier kan Jonas?', 'Hvordan kontakter jeg Jonas?'];
 
 // Floating chat button that talks to the Cloudflare Worker in chat-worker/.
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
+  // The greeting is not stored here, so it follows the language and is never sent to the model.
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const c = content[useLanguage()];
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -29,10 +58,10 @@ const ChatWidget = () => {
   if (!CHAT_API_URL) return null;
 
   const sendMessage = async (text: string) => {
-    const content = text.trim();
-    if (!content || isLoading) return;
+    const question = text.trim();
+    if (!question || isLoading) return;
 
-    const next = [...messages, { role: 'user' as const, content }];
+    const next = [...messages, { role: 'user' as const, content: question }];
     setMessages(next);
     setInput('');
     setIsLoading(true);
@@ -41,13 +70,12 @@ const ChatWidget = () => {
       const response = await fetch(CHAT_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        // The greeting is UI only, so it is not sent to the model.
-        body: JSON.stringify({ messages: next.slice(1) }),
+        body: JSON.stringify({ messages: next }),
       });
       if (response.status === 429) {
         setMessages([
           ...next,
-          { role: 'assistant', content: 'Takk for alle spørsmålene! 😊 Vil du vite mer, ta gjerne kontakt med Jonas på LinkedIn eller inviter til et intervju. Da svarer Jonas gjerne på resten selv.' },
+          { role: 'assistant', content: c.limitReached },
         ]);
         return;
       }
@@ -61,7 +89,7 @@ const ChatWidget = () => {
         ...next,
         {
           role: 'assistant',
-          content: 'Beklager, jeg får ikke svart akkurat nå. Prøv igjen senere, eller kontakt Jonas på LinkedIn.',
+          content: c.error,
         },
       ]);
     } finally {
@@ -84,21 +112,21 @@ const ChatWidget = () => {
                 <i className="ri-robot-2-line text-white text-xl"></i>
               </div>
               <div>
-                <p className="text-white font-semibold leading-tight">Spør om Jonas</p>
-                <p className="text-accent-100 text-xs">AI-assistent</p>
+                <p className="text-white font-semibold leading-tight">{c.title}</p>
+                <p className="text-accent-100 text-xs">{c.subtitle}</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
               className="text-white/80 hover:text-white cursor-pointer"
-              aria-label="Lukk chat"
+              aria-label={c.close}
             >
               <i className="ri-close-line text-2xl"></i>
             </button>
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-br from-gray-50 to-accent-50">
-            {messages.map((message, index) => (
+            {[{ role: 'assistant' as const, content: c.greeting }, ...messages].map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
@@ -112,9 +140,9 @@ const ChatWidget = () => {
               </div>
             ))}
 
-            {messages.length === 1 && (
+            {messages.length === 0 && (
               <div className="flex flex-wrap gap-2 pt-1">
-                {SUGGESTIONS.map((suggestion) => (
+                {c.suggestions.map((suggestion) => (
                   <button
                     key={suggestion}
                     onClick={() => sendMessage(suggestion)}
@@ -142,7 +170,7 @@ const ChatWidget = () => {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Skriv et spørsmål..."
+              placeholder={c.placeholder}
               maxLength={1000}
               className="flex-1 px-4 py-2 rounded-full border border-gray-200 text-sm focus:outline-none focus:border-brand-400"
             />
@@ -150,12 +178,12 @@ const ChatWidget = () => {
               type="submit"
               disabled={isLoading || !input.trim()}
               className="w-10 h-10 bg-gradient-to-r from-brand-600 to-accent-600 rounded-full flex items-center justify-center text-white disabled:opacity-50 cursor-pointer"
-              aria-label="Send"
+              aria-label={c.send}
             >
               <i className="ri-send-plane-2-fill"></i>
             </button>
           </form>
-          <p className="text-[10px] text-gray-400 text-center pb-2">AI-genererte svar kan inneholde feil.</p>
+          <p className="text-[10px] text-gray-400 text-center pb-2">{c.disclaimer}</p>
         </div>
       )}
 
@@ -170,10 +198,10 @@ const ChatWidget = () => {
           className={`relative h-14 bg-gradient-to-r from-brand-600 to-accent-600 rounded-full shadow-2xl ring-4 ring-white flex items-center justify-center gap-2 text-white font-semibold hover:scale-105 transition-transform duration-300 cursor-pointer ${
             isOpen ? 'w-14' : 'px-5'
           }`}
-          aria-label={isOpen ? 'Lukk chat' : 'Åpne chat'}
+          aria-label={isOpen ? c.close : c.open}
         >
           <i className={`${isOpen ? 'ri-close-line' : 'ri-chat-smile-3-line'} text-2xl`}></i>
-          {!isOpen && <span className="whitespace-nowrap">Spør AI om meg</span>}
+          {!isOpen && <span className="whitespace-nowrap">{c.button}</span>}
         </button>
       </div>
     </>

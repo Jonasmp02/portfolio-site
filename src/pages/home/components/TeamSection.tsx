@@ -1,10 +1,35 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../../../i18n/useLanguage'
+
+const content = {
+  no: {
+    titleStart: 'Prosjektteam og ',
+    titleHighlight: 'roller',
+    subtitle: 'Medlemmer og roller fra tidligere studie- og bachelorprosjekter',
+    readAbout: 'Les om',
+    aboutMe: 'Mer om meg',
+    philosophy: 'Vår filosofi',
+    philosophyText:
+      'Samarbeid, læring og nysgjerrighet driver oss. Vi bruker forskjellene våre som en styrke, og sammen lager vi løsninger vi lærer av og som stadig blir bedre underveis.',
+  },
+  en: {
+    titleStart: 'Project team and ',
+    titleHighlight: 'roles',
+    subtitle: 'Members and roles from previous study and bachelor projects',
+    readAbout: 'Read about',
+    aboutMe: 'About me',
+    philosophy: 'Our philosophy',
+    philosophyText:
+      'Collaboration, learning and curiosity drive us. We use our differences as a strength, and together we build solutions we learn from and that keep getting better along the way.',
+  },
+}
 
 const withBase = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\/+/, '')}`
 
 const TeamSection = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const c = content[useLanguage()]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,16 +45,15 @@ const TeamSection = () => {
     return () => observer.disconnect()
   }, [])
 
-  const teamMembers = [
+  // Only Jonas has a profile page; the other members are shown as photos with their name.
+  const teamMembers: { name: string; image: string; link?: string }[] = [
     {
       name: 'Nidal Alendar',
       image: withBase('images/nidal.jpg'),
-      link: '/team/nidal',
     },
     {
       name: 'Kristian M. Bergedalen',
       image: withBase('images/kristian.jpg'),
-      link: '/team/kristian',
     },
     {
       name: 'Jonas M. Pettersen',
@@ -39,9 +63,10 @@ const TeamSection = () => {
     {
       name: 'Pheeraphan Uthamontree',
       image: withBase('images/pheeraphan.jpg'),
-      link: '/team/pheeraphan',
     },
   ]
+
+  const cardClassName = 'group relative transform hover:scale-105 transition-all duration-300'
 
   return (
     <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-accent-50">
@@ -53,22 +78,18 @@ const TeamSection = () => {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Prosjektteam og <span className="gradient-text">roller</span>
+              {c.titleStart}<span className="gradient-text">{c.titleHighlight}</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Medlemmer og roller fra tidligere studie- og bachelorprosjekter
+              {c.subtitle}
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-accent-500 to-brand-600 mx-auto rounded-full mt-6"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <Link
-                to={member.link}
-                aria-label={`Les om ${member.name}`}
-                key={index}
-                className="group relative cursor-pointer transform hover:scale-105 transition-all duration-300"
-              >
+            {teamMembers.map((member) => {
+              const card = (
+              <>
                 {/* Profile Image */}
                 <div className="relative h-80 overflow-hidden rounded-2xl shadow-lg group-hover:shadow-2xl transition-shadow duration-300">
                   <div
@@ -94,29 +115,47 @@ const TeamSection = () => {
                   {/* Name overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform md:translate-y-full group-hover:translate-y-0 group-focus-visible:translate-y-0 transition-transform duration-300">
                     <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                    <div className="flex items-center text-accent-200">
-                      <span className="text-sm">Mer om meg</span>
-                      <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                    </div>
+                    {member.link && (
+                      <div className="flex items-center text-accent-200">
+                        <span className="text-sm">{c.aboutMe}</span>
+                        <i className="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                      </div>
+                    )}
                   </div>
 
                   {/* Click indicator */}
-                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300">
-                    <i className="ri-external-link-line text-white text-lg"></i>
-                  </div>
+                  {member.link && (
+                    <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300">
+                      <i className="ri-external-link-line text-white text-lg"></i>
+                    </div>
+                  )}
                 </div>
-              </Link>
-            ))}
+              </>
+              )
+
+              return member.link ? (
+                <Link
+                  to={member.link}
+                  aria-label={`${c.readAbout} ${member.name}`}
+                  key={member.name}
+                  className={`${cardClassName} cursor-pointer`}
+                >
+                  {card}
+                </Link>
+              ) : (
+                <div key={member.name} className={cardClassName}>
+                  {card}
+                </div>
+              )
+            })}
           </div>
 
           {/* Team Philosophy */}
           <div className="mt-16 text-center">
             <div className="bg-gradient-to-r from-accent-50 to-brand-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Vår filosofi</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{c.philosophy}</h3>
               <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Samarbeid, læring og nysgjerrighet driver oss.
-                Vi bruker forskjellene våre som en styrke, og sammen lager 
-                vi løsninger vi lærer av og som stadig blir bedre underveis.
+                {c.philosophyText}
               </p>
             </div>
           </div>
