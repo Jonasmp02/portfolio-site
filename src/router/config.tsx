@@ -7,6 +7,7 @@ import KartverketPage from '../pages/projects/kartverket/page';
 import FinnPage from '../pages/projects/finn/page';
 import BachelorPage from '../pages/projects/bachelor/page';
 import PortfolioPage from '../pages/projects/portfolio/page';
+import ChatbotPage from '../pages/projects/chatbot/page';
 import JonasPage from '../pages/team/jonas/page';
 import ProsjektstatusPage from '../pages/prosjektstatus/page';
 
@@ -14,6 +15,10 @@ const routes: RouteObject[] = [
   {
     path: '/projects/portfolio',
     element: <PortfolioPage />,
+  },
+  {
+    path: '/projects/chatbot',
+    element: <ChatbotPage />,
   },
   {
     path: '/team',

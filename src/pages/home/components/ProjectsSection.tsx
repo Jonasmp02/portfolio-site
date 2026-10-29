@@ -27,9 +27,15 @@ const content = {
         description:
           'Nettsiden du er på nå: en personlig portefølje med prosjekter, erfaring og kompetanse, tilpasset både mobil og større skjermer.',
       },
+      {
+        title: 'AI-chatbot med sikkerhetstesting',
+        description:
+          'En gratis AI-assistent som svarer på spørsmål om meg, med grense per besøkende og testet mot angrep som prompt injection og XSS.',
+      },
     ],
     imagePlaceholder: 'Plass til bilde av porteføljen',
     seeDetails: 'Se detaljer',
+    free: 'Gratis',
     bachelorLabel: 'Se bachelorprosjektet med Knowit og Telenor Maritime',
     bachelorKicker: 'Bachelorprosjekt · Knowit + Telenor Maritime',
     bachelorTitle: 'Agentbasert beslutningsstøtte for maritim drift',
@@ -63,9 +69,15 @@ const content = {
         description:
           'The website you are on right now: a personal portfolio with projects, experience and skills, built for both mobile and larger screens.',
       },
+      {
+        title: 'AI chatbot with security testing',
+        description:
+          'A free AI assistant that answers questions about me, with a limit per visitor and tested against attacks such as prompt injection and XSS.',
+      },
     ],
     imagePlaceholder: 'Placeholder for an image of the portfolio',
     seeDetails: 'See details',
+    free: 'Free',
     bachelorLabel: 'See the bachelor project with Knowit and Telenor Maritime',
     bachelorKicker: 'Bachelor project · Knowit + Telenor Maritime',
     bachelorTitle: 'Agent-based decision support for maritime operations',
@@ -126,6 +138,13 @@ const ProjectsSection = () => {
       tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
       color: 'from-brand-500 to-accent-500',
       route: '/projects/portfolio',
+    },
+    {
+      category: 'AI & Security',
+      image: withBase('images/chatbot/cover.svg'),
+      tags: ['Cloudflare Workers', 'Workers AI', 'TypeScript', 'Security', c.free],
+      color: 'from-brand-500 to-accent-500',
+      route: '/projects/chatbot',
     },
   ].map((project, index) => ({ ...project, ...c.projects[index] }))
 

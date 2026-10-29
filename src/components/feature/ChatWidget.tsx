@@ -7,6 +7,9 @@ type ChatMessage = { role: 'user' | 'assistant'; content: string };
 // Set at build time (GitHub variable CHAT_API_URL, or .env.local when developing).
 const CHAT_API_URL = import.meta.env.VITE_CHAT_API_URL as string | undefined;
 
+// Other pages can open the chat with window.dispatchEvent(new Event(OPEN_CHAT_EVENT)).
+export const OPEN_CHAT_EVENT = 'open-chat';
+
 const content = {
   no: {
     greeting: 'Hei! 👋 Jeg er en AI-assistent som kan svare på spørsmål om Jonas. Hva lurer du på?',
@@ -54,6 +57,15 @@ const ChatWidget = () => {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading, isOpen]);
+
+  useEffect(() => {
+    const open = () => {
+      setIsOpen(true);
+      setHasOpened(true);
+    };
+    window.addEventListener(OPEN_CHAT_EVENT, open);
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, open);
+  }, []);
 
   if (!CHAT_API_URL) return null;
 
