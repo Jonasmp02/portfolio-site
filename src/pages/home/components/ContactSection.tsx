@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../../../i18n/useLanguage';
+import { CvContactButton } from '../../../components/feature/CvDownload';
 
 const content = {
   no: {
@@ -85,6 +86,7 @@ const ContactSection = ({
               <i className="ri-user-line mr-2 text-lg"></i>
               {c.about}
             </button>
+            <CvContactButton />
           </div>
         </div>
       </div>

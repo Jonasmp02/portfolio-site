@@ -1,4 +1,5 @@
 import { useLanguage } from '../../i18n/useLanguage';
+import { CvFooterLink } from './CvDownload';
 
 const content = {
   no: {
@@ -94,6 +95,7 @@ const Footer = () => {
                 <i className="ri-map-pin-line text-red-400 mr-3"></i>
                 <span className="text-gray-400">{c.location}</span>
               </div>
+              <CvFooterLink />
             </div>
           </div>
         </div>

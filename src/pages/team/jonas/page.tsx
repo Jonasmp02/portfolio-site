@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Navbar from '../../../components/feature/Navbar'
 import Footer from '../../../components/feature/Footer'
 import { useLanguage } from '../../../i18n/useLanguage'
+import { CvBanner } from '../../../components/feature/CvDownload'
 
 const withBase = (p: string) => `${import.meta.env.BASE_URL}${p.replace(/^\/+/, '')}`
 
@@ -107,7 +108,7 @@ const JonasPage = () => {
           setIsVisible(true)
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.05 }
     )
 
     const element = document.getElementById('jonas-profile')
@@ -187,6 +188,8 @@ const JonasPage = () => {
           </div>
         </div>
       </section>
+
+      <CvBanner />
 
       {/* About Section */}
       <section id="jonas-profile" className="py-16">
